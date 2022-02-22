@@ -6,11 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-puts 'Destroy all websites'
+puts "Cleaning database..."
 Website.destroy_all
-5.times do
-  website = Website.new(name: "website", url: "www.website.com")
-  website.user = User.find(3)
-  website.save
-  puts `Website #{website.id} created`
+
+puts "Creating restaurants..."
+web1 = { name: "bitesew", url: "www.website.com", user_id: 3}
+web2 =  { name: "East", url: "www.website-also.com", user_id: 3}
+
+[ web1, web2 ].each do |attributes|
+  website = Website.create!(attributes)
+  puts "Created #{website.name}"
 end
+puts "Finished!"
