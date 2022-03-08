@@ -4,11 +4,12 @@ class WebsitesController < ApplicationController
   # GET /websites or /websites.json
   def index
     @websites = Website.where(user: current_user)
-
   end
 
   # GET /websites/1 or /websites/1.json
+
   def show
+    @keywords = @website.keywords
   end
 
   # GET /websites/new

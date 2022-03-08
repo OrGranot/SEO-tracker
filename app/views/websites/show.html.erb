@@ -15,5 +15,16 @@
   <%= @website.user_id %>
 </p>
 
+<br />
+
+<p>
+  <strong>keywords:</strong>
+    <% @keywords.each do |keyword| %>
+      <%= keyword.key_string %>,
+    <% end %>
+</p>
+
+
+
 <%= link_to 'Edit', edit_website_path(@website) %> |
 <%= link_to 'Back', websites_path %>
