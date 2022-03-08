@@ -17,13 +17,14 @@
 
 <br />
 
-<p>
   <strong>keywords:</strong>
     <% @keywords.each do |keyword| %>
-      <%= keyword.key_string %>,
+      <div class="keyword">
+        <%= keyword.key_string %>
+      </div>
     <% end %>
-</p>
 
+<%= link_to "search", website_search_add_path(@website) %>
 
 
 <%= link_to 'Edit', edit_website_path(@website) %> |
