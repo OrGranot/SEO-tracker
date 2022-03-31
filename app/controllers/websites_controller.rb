@@ -10,6 +10,7 @@ class WebsitesController < ApplicationController
 
   def show
     @keywords = @website.keywords
+    @keyword = Keyword.new
   end
 
   # GET /websites/new
