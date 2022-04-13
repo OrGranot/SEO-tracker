@@ -16,40 +16,45 @@
 </p>
 
 <br />
-
-    <% dates =  Keyword.where(:id == @website.id).select(:created_at).first(4).uniq %>
-    <table class="table">
+<table class="table table-striped">
   <thead>
     <tr>
-      <th scope="col">Keyword</th>
-      <% dates.each do |date| %>
-        <th scope="col"><%= date.created_at.strftime("%d/%m/%Y") %></th>
-      <% end %>
+      <th scope="col">Keywords</th>
+      <% @dates.each do |date| %>
+      <th scope="col" class="date"><%= date %></th>
+    <% end %>
     </tr>
   </thead>
   <tbody>
+
     <% @keywords.each do |keyword| %>
-      <tr>
-        <th>
-          <%= keyword.key_string %>
-        </th>
-        <% keyword.searches.first(4).each do |search| %>
-          <td><%= search.created_at.strftime("%d/%m/%Y")   %></td>
+    <tr>
+      <th class="keyword" scope="row"><%= keyword.key_string %></th>
+      <% @dates.each_with_index do |date, index| %>
+
+        <% search = keyword.searches.select{|search| search[:date] == date}[0] %>
+        <% if search %>
+          <td class = "rank"><%= search.rank %></td>
+        <% else %>
+          <td class = "rank"> - </td>
         <% end %>
-        <th><%= link_to 'X', website_keyword_path(@website, keyword), method: :delete %></th>
-      </tr>
+      <% end %>
+    </tr>
     <% end %>
-  </tbody>
+   </tbody>
 </table>
+
 
 <div>
   <% keyword = Keyword.new %>
   <%= simple_form_for [ @website, keyword ] do |f| %>
   <%= f.input :key_string %>
-  <%= f.button :submit %>
+  <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
 </div>
 
-<%= link_to "search", website_search_add_path(@website) %> |
+
+
+<%= link_to "Check Ranks", website_search_add_path(@website) %> |
 <%= link_to 'Edit', edit_website_path(@website) %> |
 <%= link_to 'Back', websites_path %>

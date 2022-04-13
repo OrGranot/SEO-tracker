@@ -1,0 +1,31 @@
+.table {
+  // display: flex;
+  gap: 3rem;
+  text-align: center;
+  width: fit-content;
+  border: 1px solid black;
+  thead {
+    background-color: $gray;
+    color: $light-gray;
+    font-weight: 400;
+    font-size: 0.875rem;
+  }
+  .keyword {
+    font-weight: bold;
+  }
+
+  .keyword {
+    text-align: start;
+  }
+
+  .date {
+
+  }
+
+  .rank {
+  }
+
+  .blank {
+    height: 100%;
+  }
+}
