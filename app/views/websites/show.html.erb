@@ -17,15 +17,14 @@
 
 <br />
 
-
+    <% dates =  Keyword.where(:id == @website.id).select(:created_at).first(4).uniq %>
     <table class="table">
   <thead>
     <tr>
       <th scope="col">Keyword</th>
-      <th scope="col">22.3</th>
-      <th scope="col">23.3</th>
-      <th scope="col">24.3</th>
-      <th scope="col">25.3</th>
+      <% dates.each do |date| %>
+        <th scope="col"><%= date.created_at.strftime("%d/%m/%Y") %></th>
+      <% end %>
     </tr>
   </thead>
   <tbody>
@@ -35,16 +34,22 @@
           <%= keyword.key_string %>
         </th>
         <% keyword.searches.first(4).each do |search| %>
-          <td><%= search.rank %></td>
+          <td><%= search.created_at.strftime("%d/%m/%Y")   %></td>
         <% end %>
+        <th><%= link_to 'X', website_keyword_path(@website, keyword), method: :delete %></th>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to "search", website_search_add_path(@website) %>
-<%= link_to "add keyword", website_keywords_add_path(@website) %>
+<div>
+  <% keyword = Keyword.new %>
+  <%= simple_form_for [ @website, keyword ] do |f| %>
+  <%= f.input :key_string %>
+  <%= f.button :submit %>
+<% end %>
+</div>
 
-
+<%= link_to "search", website_search_add_path(@website) %> |
 <%= link_to 'Edit', edit_website_path(@website) %> |
 <%= link_to 'Back', websites_path %>
