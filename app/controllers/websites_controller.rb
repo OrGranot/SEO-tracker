@@ -10,8 +10,11 @@ class WebsitesController < ApplicationController
 
   def show
     @keywords = @website.keywords
-
-    @dates = Website.joins(:keywords, :searches).find(@website.id).searches.order(date: :asc).first(5).map {|search| search.date}.uniq
+    @dates = @keywords.map do |keyword|
+      keyword.searches.map {|search| search.date}
+    end
+    @dates = @dates.flatten.uniq.sort
+    # @dates = Website.joins(:keywords, :searches).find(@website.id).searches.order(date: :asc).first(5).map {|search| search.date}.uniq
     @arr = []
     @keywords.each do |keyword|
       hased_keyword = Hash.new(keyword)
@@ -21,7 +24,8 @@ class WebsitesController < ApplicationController
         @arr << hased_keyword
       end
     end
-    raise
+
+
 
   end
 

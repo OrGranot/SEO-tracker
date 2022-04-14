@@ -30,7 +30,7 @@
     <% @keywords.each do |keyword| %>
     <tr>
       <th class="keyword" scope="row"><%= keyword.key_string %></th>
-      <% @dates.each_with_index do |date, index| %>
+      <% @dates.each do |date| %>
 
         <% search = keyword.searches.select{|search| search[:date] == date}[0] %>
         <% if search %>
