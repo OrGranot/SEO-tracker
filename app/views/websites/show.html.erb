@@ -1,27 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @website.name %>
-</p>
 
-<p>
-  <strong>Url:</strong>
-  <%= @website.url %>
-</p>
+  <h2><%= @website.name %></h2>
 
-<p>
-  <strong>User:</strong>
-  <%= @website.user_id %>
-</p>
+
+
+  <%= link_to @website.url, @website.url, class: 'link-primary' %>
+
 
 <br />
-<table class="table table-striped">
+<table class="table table-striped mt-3">
   <thead>
     <tr>
       <th scope="col">Keywords</th>
       <% @dates.each do |date| %>
-      <th scope="col" class="date"><%= date %></th>
+      <th scope="col" class="date"><%= date.strftime('%d/%m/%Y') %></th>
     <% end %>
     </tr>
   </thead>
@@ -45,11 +38,12 @@
 </table>
 
 
-<div>
+<div class="">
   <% keyword = Keyword.new %>
   <%= simple_form_for [ @website, keyword ] do |f| %>
-  <%= f.input :key_string %>
-  <%= f.button :submit, class: "btn btn-primary" %>
+    <%= f.input :key_string, :label => "keywords" %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+
 <% end %>
 </div>
 
