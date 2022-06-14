@@ -1,11 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-
-  <h2><%= @website.name %></h2>
-
-
-
-  <%= link_to @website.url, @website.url, class: 'link-primary' %>
+  <h1><%= @website.name %></h1>
+  <%= link_to @website.url, URI::HTTP.build({:host => @website.url}).to_s, class: 'link-primary', target: "_blank" %>
 
 
 <br />
