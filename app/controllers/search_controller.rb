@@ -34,7 +34,7 @@ class SearchController < ApplicationController
 
     uri = URI("https://api.valueserp.com/search")
 
-    params = { :api_key => "5996D87454614FAA8AC47EF89787C904", :q => query.key_string, :gl => gl, :num => 100 }
+    params = { :api_key => ENV['VALUESERP_API_KEY'], :q => query.key_string, :gl => gl, :num => 100 }
     uri.query = URI.encode_www_form(params)
 
     res = Net::HTTP.get_response(uri)
