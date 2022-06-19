@@ -5,10 +5,19 @@
 
 
 <br />
+
+<div class="new-key-word d-flex">
+  <% keyword = Keyword.new %>
+  <%= simple_form_for [ @website, keyword ] do |f| %>
+    <%= f.input :key_string, :label => "הוסף מילות חיפוש" %>
+    <%= f.button :submit, class: "btn btn-primary", value: "יצירה" %>
+
+<% end %>
+</div>
 <table class="table table-striped mt-3">
   <thead>
     <tr>
-      <th scope="col">Keywords</th>
+      <th scope="col">מילות חיפוש</th>
       <% @dates.each do |date| %>
       <th scope="col" class="date"><%= date.strftime('%d/%m/%Y') %></th>
     <% end %>
@@ -34,17 +43,9 @@
 </table>
 
 
-<div class="">
-  <% keyword = Keyword.new %>
-  <%= simple_form_for [ @website, keyword ] do |f| %>
-    <%= f.input :key_string, :label => "keywords" %>
-    <%= f.button :submit, class: "btn btn-primary" %>
-
-<% end %>
-</div>
 
 
 
-<%= link_to "Check Ranks", website_search_add_path(@website) %> |
-<%= link_to 'Edit', edit_website_path(@website) %> |
-<%= link_to 'Back', websites_path %>
+
+<%= link_to "בדוק מיקומים", website_search_add_path(@website) %> |
+<%= link_to 'עריכה', edit_website_path(@website) %> 
