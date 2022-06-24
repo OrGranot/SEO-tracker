@@ -2,7 +2,7 @@
 
 <h1>האתרים שלי</h1>
 
-<table class="text-center">
+<table class="text-center mb-3">
   <thead>
     <tr>
       <th></th>
@@ -19,13 +19,32 @@
         <% end %></td>
         <td class="px-3"><%= link_to website.name, website, class: "" %></td>
         <td class="px-3"><%= website.url %></td>
-        
+
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-
 <%= link_to 'ליצירת אתר חדש', new_website_path %>
+
+<h1 class="mt-5">אתרים משותפים</h1>
+
+<table class="text-center">
+  <thead>
+    <tr>
+      <th></th>
+      <th>שם האתר</th>
+      <th>כתובת האתר</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shared_websites.each do |shared_website| %>
+      <tr>
+        <td></td>
+        <td class="px-3"><%= link_to shared_website.website.name, shared_website, class: "" %></td>
+        <td class="px-3"><%= shared_website.website.url %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>

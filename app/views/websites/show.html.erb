@@ -1,15 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-  <h1><%= @website.name %></h1>
-  <%= link_to @website.url, URI::HTTP.build({:host => @website.url}).to_s, class: 'link-primary', target: "_blank" %>
-
-
-<br />
+<h1 class="m-0"><%= @website.name %></h1>
+<%= link_to @website.url, URI::HTTP.build({:host => @website.url}).to_s, class: 'link-primary', target: "_blank" %>
 
 <div class="new-key-word d-flex">
   <% keyword = Keyword.new %>
   <%= simple_form_for [ @website, keyword ] do |f| %>
-  <div class="d-flex gap-3 ">  
+  <div class="d-flex gap-3 ">
       <%= f.input :key_string, :label => "הוסף מילות חיפוש" %>
       <%= button_tag(type: 'submit', class: "btn-custom mt-3") do %>
         <i class="icon-ok icon-white"></i> הוסף
@@ -46,5 +43,7 @@
    </tbody>
 </table>
 
-
-<%= link_to "בדוק מיקומים", website_search_add_path(@website), class: "btn btn-primary" %> 
+<div class="links d-flex align-items-center gap-3">
+  <%= link_to "בדוק מיקומים", website_search_add_path(@website), class: "btn btn-primary" %>
+  <i class="fa-solid fa-user-plus h-100 d-inline-block"></i>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_24_091004) do
+ActiveRecord::Schema.define(version: 2022_06_24_093529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,16 @@ ActiveRecord::Schema.define(version: 2022_06_24_091004) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["keyword_id"], name: "index_searches_on_keyword_id"
+  end
+
+  create_table "shared_websites", force: :cascade do |t|
+    t.bigint "website_id", null: false
+    t.bigint "user_id", null: false
+    t.string "role"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_shared_websites_on_user_id"
+    t.index ["website_id"], name: "index_shared_websites_on_website_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -57,5 +67,7 @@ ActiveRecord::Schema.define(version: 2022_06_24_091004) do
 
   add_foreign_key "keywords", "websites"
   add_foreign_key "searches", "keywords"
+  add_foreign_key "shared_websites", "users"
+  add_foreign_key "shared_websites", "websites"
   add_foreign_key "websites", "users"
 end

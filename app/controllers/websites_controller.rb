@@ -4,6 +4,7 @@ class WebsitesController < ApplicationController
   # GET /websites or /websites.json
   def index
     @websites = Website.where(user: current_user)
+    @shared_websites = SharedWebsite.where(user: current_user)
   end
 
   # GET /websites/1 or /websites/1.json
@@ -14,7 +15,6 @@ class WebsitesController < ApplicationController
       keyword.searches.map {|search| search.date}
     end
     @dates = @dates.flatten.uniq.sort
-    # @dates = Website.joins(:keywords, :searches).find(@website.id).searches.order(date: :asc).first(5).map {|search| search.date}.uniq
     @arr = []
     @keywords.each do |keyword|
       hased_keyword = Hash.new(keyword)
@@ -24,9 +24,6 @@ class WebsitesController < ApplicationController
         @arr << hased_keyword
       end
     end
-
-
-
   end
 
   # GET /websites/new
