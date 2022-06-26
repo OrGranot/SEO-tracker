@@ -31,18 +31,18 @@
 <table class="text-center">
   <thead>
     <tr>
-      <th></th>
-      <th>שם האתר</th>
-      <th>כתובת האתר</th>
+      <th class="px-3">שם האתר</th>
+      <th class="px-3">כתובת האתר</th>
+      <th class="px-3">משתמש ראשי</th>
     </tr>
   </thead>
 
   <tbody>
     <% @shared_websites.each do |shared_website| %>
       <tr>
-        <td></td>
         <td class="px-3"><%= link_to shared_website.website.name, shared_website, class: "" %></td>
         <td class="px-3"><%= shared_website.website.url %></td>
+        <td class="px-3"><%= shared_website.website.user.email %></td>
 
       </tr>
     <% end %>

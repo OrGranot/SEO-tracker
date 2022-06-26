@@ -45,5 +45,7 @@
 
 <div class="links d-flex align-items-center gap-3">
   <%= link_to "בדוק מיקומים", website_search_add_path(@website), class: "btn btn-primary" %>
-  <i class="fa-solid fa-user-plus h-100 d-inline-block"></i>
+  <%= link_to new_shared_website_path(:website_id => @website.id) do %>
+    <i class="fa-solid fa-user-plus h-100 d-inline-block"></i>
+  <% end %>
 </div>

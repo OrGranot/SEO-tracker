@@ -1,0 +1,17 @@
+  <%= simple_form_for(@shared_website) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+    <div class="form-inputs">
+      <%= f.input :user, :label => "אימייל" %>
+      <%= f.input :role, :label => "הרשאה", collection: ['צפיה בלבד', 'עריכה'], :selected => 'צפיה בלבד' %>
+      <%= f.hidden_field :website_id, :value => params[:website_id] %>
+      <%# Need to change it to a safer way to pass website id!!! %>
+    </div>
+
+    <div class="form-actions">
+      <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+            <%= 'שתף' %>
+        <% end %>
+    </div>
+  <% end %>

@@ -24,6 +24,7 @@ class WebsitesController < ApplicationController
         @arr << hased_keyword
       end
     end
+    @shared_website = SharedWebsite.new
   end
 
   # GET /websites/new
