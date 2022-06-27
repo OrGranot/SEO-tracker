@@ -9,12 +9,10 @@ class SearchController < ApplicationController
         if rank == false
           flash[:notice] = 'שגיאה בקריאת נתונים'
           redirect_to website_path(website) and return
-        else
-          if rank > 0 then
+        elsif rank.positive?
             search = Search.new(date: Date.today, rank: rank, engine: 'Google')
             search.keyword = keyword
             search.save
-          end
         end
       end
     end

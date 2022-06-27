@@ -23,8 +23,8 @@
   }
 
   .rank {
-    --spacing: 30%;
-    --angle: 35deg;
+    // --spacing: 20%;
+    // --angle: 0deg;
     position: relative;
 
     &::after {
@@ -39,14 +39,17 @@
       font-variant: normal;
       text-rendering: auto;
       -webkit-font-smoothing: antialiased;
+
+      // top: 25%;
     }
   }
   .rank.higher-rank {
     color: $green;
 
     &::after {
-      top: 0;
-      transform: rotate(calc(-1 * var(--angle))) translate(var(--spacing), var(--spacing));
+      // top: 0;
+      // transform: rotate(calc(-1 * var(--angle))) translate(var(--spacing), var(--spacing));
+      transform: translateY(25%);
       content: "\f0de";
     }
   }
@@ -54,8 +57,9 @@
     color: $red;
 
     &::after {
-      bottom: 0;
-      transform: rotate(var(--angle)) translate(var(--spacing), calc(-1 * var(--spacing)));
+      // bottom: 0;
+      // transform: rotate(var(--angle)) translate(var(--spacing), calc(-1 * var(--spacing)));
+      // transform: translateY(-25%);
       content: "\f0dd";
     }
   }
