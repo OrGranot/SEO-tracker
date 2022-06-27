@@ -39,16 +39,20 @@
   <tbody>
 
     <% @keywords.each do |keyword| %>
+    <% last_search = keyword.searches.first %>
     <tr>
       <th class="keyword" scope="row"><%= keyword.key_string %></th>
       <% @dates.each do |date| %>
-
         <% search = keyword.searches.select{|search| search[:date] == date}[0] %>
         <% if search %>
-          <td class = "rank"><%= search.rank %></td>
+          <% change = 'same-rank' if search.rank.to_i == last_search.rank.to_i
+             change = 'lower-rank' if search.rank.to_i > last_search.rank.to_i
+             change = 'higher-rank' if search.rank.to_i < last_search.rank.to_i %>
+          <td class = "<%= "rank " + change %>"><%= search.rank %></td>
         <% else %>
           <td class = "rank"> - </td>
         <% end %>
+        <% last_search = search unless search.nil? %>
       <% end %>
     </tr>
     <% end %>
