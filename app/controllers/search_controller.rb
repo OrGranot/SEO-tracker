@@ -6,25 +6,32 @@ class SearchController < ApplicationController
       search = keyword.searches.select {|s| s[:date] == Date.today}
       unless search != []
         rank = find_rank(keyword)
-        if rank > 0 then
-          search = Search.new(date: Date.today, rank: rank, engine: 'Google')
-          search.keyword = keyword
-          search.save
+        if rank == false
+          flash[:notice] = 'שגיאה בקריאת נתונים'
+          redirect_to website_path(website) and return
+        else
+          if rank > 0 then
+            search = Search.new(date: Date.today, rank: rank, engine: 'Google')
+            search.keyword = keyword
+            search.save
+          end
         end
       end
     end
     redirect_to website
   end
 
+  private
 
-  private 
-  
   def find_rank(keyword)
     results = api_call(keyword)
-    results["organic_results"].each do |result|
-      if result["domain"] == (keyword.website.url) then return result["position"] end
-    end
-    return -1
+    return false if results["request_info"]["success"] == false
+      # flash[:notice] = 'שגיאה בקריאת נתונים'
+      # redirect_to(root_path) and return
+      results["organic_results"].each do |result|
+        if result["domain"] == (keyword.website.url) then return result["position"] end
+      end
+      return -1
   end
 
   def api_call(query, gl = "il")
@@ -39,5 +46,5 @@ class SearchController < ApplicationController
 
     res = Net::HTTP.get_response(uri)
     results = JSON.parse(res.read_body)
-  end 
+  end
 end
