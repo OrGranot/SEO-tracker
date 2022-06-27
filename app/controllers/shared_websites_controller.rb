@@ -26,7 +26,7 @@ class SharedWebsitesController < ApplicationController
 
   def create
     if validate_website(params[:shared_website][:website_id])
-      user = User.find_by(email: params[:shared_website][:user])
+      user = User.find_by(email: params[:shared_website][:user].downcase)
       website = Website.find(params[:shared_website][:website_id].to_i)
       role = 'viewer' if params[:shared_website][:role] == 'צפיה בלבד'
       role = 'editor' if params[:shared_website][:role] == 'עריכה'
