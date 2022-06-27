@@ -46,16 +46,6 @@ class SharedWebsitesController < ApplicationController
     else
       redirect_to root_path
     end
-    # raise
-
-    # @shared_website.website = Website.find(params[:website_id].to_i)
-
-
-    # @shared_website = SharedWebsite.new(shared_website_params)
-    # change role to english in DB
-    # change email to User if exists
-
-
   end
 
   def destroy
@@ -81,5 +71,5 @@ class SharedWebsitesController < ApplicationController
   def validate_website(id)
     id.to_i
     Website.exists?(id) && Website.find(id).user == current_user
-end
+  end
 end
