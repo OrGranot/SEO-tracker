@@ -38,17 +38,14 @@ class WebsitesController < ApplicationController
 
   # POST /websites or /websites.json
   def create
-
     @website = Website.new(website_params)
     @website.url = @website.url.gsub(/(^https?\:\/\/|(\/|\?).*$)/, '')
     @website.user = current_user
     respond_to do |format|
       if @website.save
         format.html { redirect_to website_url(@website), notice: "Website was successfully created." }
-        format.json { render :show, status: :created, location: @website }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @website.errors, status: :unprocessable_entity }
       end
     end
   end
