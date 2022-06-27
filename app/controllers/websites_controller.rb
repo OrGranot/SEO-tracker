@@ -40,6 +40,7 @@ class WebsitesController < ApplicationController
   def create
 
     @website = Website.new(website_params)
+    @website.url = @website.url.gsub(/(^https?\:\/\/|(\/|\?).*$)/, '')
     @website.user = current_user
     respond_to do |format|
       if @website.save
