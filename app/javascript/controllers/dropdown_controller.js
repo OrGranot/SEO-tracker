@@ -10,10 +10,12 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "menu", "dropdownBtn" ]
+  static targets = [ "menu", "dropdownBtn", "iconopen", "iconclose" ]
 
   click() {
     this.menuTarget.classList.toggle('show')
     this.dropdownBtnTarget.classList.toggle('open')
+    this.iconopenTarget.classList.toggle('d-none')
+    this.iconcloseTarget.classList.toggle('d-none')
   }
 }
