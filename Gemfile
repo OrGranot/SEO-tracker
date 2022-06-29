@@ -34,7 +34,6 @@ gem 'pry', '~> 0.13.1'
 gem 'simple_form', github: 'heartcombo/simple_form'
 
 
-
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 group :development, :test do  gem 'pry-byebug'

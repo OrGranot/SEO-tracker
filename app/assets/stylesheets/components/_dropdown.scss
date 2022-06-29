@@ -1,0 +1,35 @@
+.drop-down {
+  position: relative;
+}
+
+.custom-drop-down-menu {
+ display: none;
+  position: absolute;
+  text-align: center;
+  background-color: $light-gray;
+  border: 1px solid $primary;
+  border-top: none;
+  width: 200px;
+  left: 100%;
+  transform: translate(-19.5%, -3px);
+  border-radius: 0 0 4px 4px;
+
+  & .dropdown-item::before {
+    content: '';
+    position: absolute;
+    right: 5%;
+    height: 1px;
+    width: 25%;
+    right: 50%;
+    transform: translate(50%, -0.4rem);
+    border: 0.5px solid $primary;
+  }
+
+  & .dropdown-item:first-of-type::before {
+    transform: translateY(0);
+    width: 161px;
+    right: 0;
+    top: 0;
+
+  }
+}
