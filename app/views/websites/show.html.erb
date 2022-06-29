@@ -3,18 +3,24 @@
     <div class="card-header d-flex justify-content-between align-items-center px-4">
       <h1 class="m-0 text-center fw-bold"><%= @website.name %></h1>
       <div class="d-flex gap-2 align-items-center">
-        <%= link_to website_path(@website.id), id: "dropdownMenuButton", data: {toggle: "dropdown"} do %>
-        <% end %>
-        <div class="drop-down">
-          <button class="btn btn-outline-primary px-2 py-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fa-solid fa-bars h4 mt-2"></i>
+
+        <div class="drop-down" data-controller="dropdown">
+          <button class="dropdown-btn" data-dropdown-target="dropdownBtn" data-action="dropdown#click" type="button" >
+            <i class="fa-solid fa-bars h4"></i>
+            <i class="fa-solid fa-xmark d-none"></i>
           </button>
-          <div class="custom-drop-down-menu" aria-labelledby="dropdownMenuButton">
-          <%= link_to new_shared_website_path(:website_id => @website.id), class: "dropdown-item" do %>
-            שתף
-          <% end %>
-            <a class="dropdown-item" href="#">מחק</a>
-            <%= link_to @website.url, URI::HTTP.build({:host => @website.url}).to_s, class: 'dropdown-item', target: "_blank" %>
+          <div class="custom-drop-down-menu" data-dropdown-target="menu" aria-labelledby="dropdownMenuButton">
+            <div class="dropdown-item-custom">
+              <%= link_to new_shared_website_path(:website_id => @website.id), class: "dropdown-link" do %>
+                שתף
+              <% end %>
+            </div>
+            <div class="dropdown-item-custom">
+              <a class="dropdown-link" href="#">מחק</a>
+            </div>
+            <div class="dropdown-item-custom">
+              <%= link_to @website.url, URI::HTTP.build({:host => @website.url}).to_s, class: 'dropdown-link', target: "_blank" %>
+            </div>
           </div>
         </div>
 

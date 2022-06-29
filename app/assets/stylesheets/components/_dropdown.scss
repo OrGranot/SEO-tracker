@@ -1,35 +1,100 @@
 .drop-down {
+  --size: 2.5rem;
+
   position: relative;
-}
 
-.custom-drop-down-menu {
- display: none;
-  position: absolute;
-  text-align: center;
-  background-color: $light-gray;
-  border: 1px solid $primary;
-  border-top: none;
-  width: 200px;
-  left: 100%;
-  transform: translate(-19.5%, -3px);
-  border-radius: 0 0 4px 4px;
+  .dropdown-btn {
+    width:  var(--size);
+    aspect-ratio: 1;
+    border: 1px solid $primary;
+    background-color: $primary;
+    display: grid;
+    place-items: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 100ms linear;
 
-  & .dropdown-item::before {
-    content: '';
-    position: absolute;
-    right: 5%;
-    height: 1px;
-    width: 25%;
-    right: 50%;
-    transform: translate(50%, -0.4rem);
-    border: 0.5px solid $primary;
+    & > i {
+      margin: 0;
+      color: white;
+      transition: color 100ms linear;
+    }
+
+    &:hover {
+      background-color: $dark-gray;
+      border: 1px solid $primary;
+      transition: background-color 100ms linear;
+
+      & > i {
+        color: $primary;
+        transition: background-color 100ms linear;
+      }
+    }
+
+    &.open {
+      background-color: $light-gray;
+
+      & > i {
+        color: $primary;
+      }
+    }
+    &.open:hover, &.open:focus {
+      border-bottom: 1px solid transparent;
+      outline: 0;
+    }
   }
 
-  & .dropdown-item:first-of-type::before {
-    transform: translateY(0);
-    width: 161px;
-    right: 0;
-    top: 0;
+  .custom-drop-down-menu {
+    display: none;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    background-color: $light-gray;
+    border: 1px solid $primary;
+    border-top: none;
+    width: calc(var(--size) * 5);
+    left: 100%;
+    border-radius: 0 0 4px 4px;
+    transform:translate(-20%, -2px);
 
+    .dropdown-item-custom {
+      position: relative;
+      padding-block: .35em;
+    }
+
+    & .dropdown-item-custom:not(:last-of-type)::before {
+      content: '';
+      position: absolute;
+      height: 0.2px;
+      width: 25%;
+      bottom: 0;
+      right: 50%;
+      transform: translate(50%, 0);
+      background-color: $primary;
+    }
+
+
+    & .dropdown-item-custom:first-of-type::after {
+      content: '';
+      position: absolute;
+      background-color: $primary;
+      height: 1px;
+      width: calc(80% + 2px);
+      right: 0;
+      top: 0;
+    }
+
+    .dropdown-link {
+      text-decoration: none;
+      color: rgba(black, 0.6);
+    }
+
+    .dropdown-link:hover, .dropdown-link:focus {
+      color: rgba(black, 1);
+    }
+
+    &.show {
+      display: block;
+    }
   }
 }
