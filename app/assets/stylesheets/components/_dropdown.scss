@@ -48,7 +48,7 @@
     display: none;
     overflow: hidden;
     position: absolute;
-    text-align: center;
+    // text-align: center;
     background-color: $light-gray;
     border: 1px solid $primary;
     border-top: none;
@@ -60,21 +60,22 @@
     .dropdown-item-custom {
       position: relative;
       padding-block: .35em;
+      padding-inline-start: 0.5em;
     }
 
-    & .dropdown-item-custom:not(:last-of-type)::before {
+    & .dropdown-item-custom:not(:last-of-type)::after {
       content: '';
       position: absolute;
-      height: 0.2px;
-      width: 25%;
+      height: 1px;
+      width: 100%;
       bottom: 0;
       right: 50%;
-      transform: translate(50%, 0);
-      background-color: $primary;
+      transform: translateX(50%);
+      background-image: linear-gradient(to right, rgba($primary, 0), $primary 30%, $primary 70%, rgba($primary, 0));
     }
 
 
-    & .dropdown-item-custom:first-of-type::after {
+    & .dropdown-item-custom:first-of-type::before {
       content: '';
       position: absolute;
       background-color: $primary;
@@ -87,10 +88,20 @@
     .dropdown-link {
       text-decoration: none;
       color: rgba(black, 0.6);
+
+      &>i {
+        margin-inline-end: 0.15em;
+        font-size: 0.9rem;
+        color: rgba($primary, 0.85);
+      }
     }
 
     .dropdown-link:hover, .dropdown-link:focus {
       color: rgba(black, 1);
+
+      &>i {
+        color: rgba($primary, 1);
+      }
     }
 
     &.show {

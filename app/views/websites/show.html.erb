@@ -12,14 +12,28 @@
           <div class="custom-drop-down-menu" data-dropdown-target="menu" aria-labelledby="dropdownMenuButton">
             <div class="dropdown-item-custom">
               <%= link_to new_shared_website_path(:website_id => @website.id), class: "dropdown-link" do %>
+                <i class="fa-solid fa-user-plus"></i>
                 שתף
               <% end %>
             </div>
+
             <div class="dropdown-item-custom">
-              <a class="dropdown-link" href="#">מחק</a>
+              <%= link_to new_shared_website_path(:website_id => @website.id), class: "dropdown-link" do %>
+                <i class="fa-solid fa-pen-to-square"></i>
+                עריכה
+              <% end %>
             </div>
             <div class="dropdown-item-custom">
-              <%= link_to @website.url, URI::HTTP.build({:host => @website.url}).to_s, class: 'dropdown-link', target: "_blank" %>
+              <a class="dropdown-link" href="#">
+                <i class="fa-solid fa-ban"></i>
+                מחק
+              </a>
+            </div>
+            <div class="dropdown-item-custom">
+              <%= link_to URI::HTTP.build({:host => @website.url}).to_s, class: 'dropdown-link', target: "_blank" do %>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                <%= @website.url %>
+              <% end %>
             </div>
           </div>
         </div>
