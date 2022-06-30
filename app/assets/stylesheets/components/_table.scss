@@ -10,12 +10,14 @@
     font-weight: 400;
     font-size: 0.875rem;
   }
-  .keyword {
-    font-weight: bold;
-  }
 
+  th {
+    text-align: start;
+
+  }
   .keyword {
     text-align: start;
+    font-weight: bold;
   }
 
   .date {
@@ -23,8 +25,6 @@
   }
 
   .rank {
-    // --spacing: 20%;
-    // --angle: 0deg;
     position: relative;
 
     &::after {

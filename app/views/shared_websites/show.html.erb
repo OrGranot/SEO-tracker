@@ -2,7 +2,7 @@
     <%= @shared_website.website.name %>
     <span class="text-muted h4">(<%= @shared_website.website.user.email %>)</span>
   </h1>
-  <%= link_to @shared_website.website.url, URI::HTTP.build({:host => @shared_website.website.url}), class: 'link-primary', target: "_blank" %>
+  <%= link_to @shared_website.website.url, URI::HTTP.build({:host => @shared_website.website.url}).to_s, class: 'link-primary', target: "_blank" %>
 
 <table class="table table-striped mt-3">
   <thead>
