@@ -63,6 +63,7 @@
       <thead>
         <tr>
           <%# <th class="">פעיל?</th> %>
+          <th class="" scope="col"></th>
           <th class="" scope="col">מילות חיפוש</th>
           <% @dates.each do |date| %>
           <th scope="col" class="date"><%= date.strftime('%d/%m/%Y') %></th>
@@ -75,6 +76,10 @@
         <% @keywords.each do |keyword| %>
         <% last_search = keyword.searches.first %>
         <tr>
+          <td><%= link_to website_keyword_path(@website, keyword), method: :delete, data: { confirm: 'אתה בטוח? כל המידע יאבד' }, class: "text-danger" do %>
+            <i class="btn p-0 text-danger">X</i>
+          <% end %></td>
+          <%# <%= raise %>
           <%# <td><input type="checkbox" id="active" name="isActive" checked></td> %>
           <td class="keyword" scope="row"><%= keyword.key_string %></td>
           <% @dates.each do |date| %>
