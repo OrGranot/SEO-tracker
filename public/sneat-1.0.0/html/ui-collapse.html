@@ -1,18 +1,38 @@
 <!DOCTYPE html>
+
+<!-- =========================================================
+* Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
+==============================================================
+
+* Product Page: https://themeselection.com/products/sneat-bootstrap-html-admin-template/
+* Created by: ThemeSelection
+* License: You must have a valid license purchased in order to legally use the theme for your project.
+* Copyright ThemeSelection (https://themeselection.com)
+
+=========================================================
+ -->
+<!-- beautify ignore:start -->
 <html
   lang="en"
   class="light-style layout-menu-fixed"
-  dir="rtl"
+  dir="ltr"
   data-theme="theme-default"
-  data-assets-path="../sneat-1.0.0/assetes"
-  data-template="vertical-menu-template-free">
-
+  data-assets-path="../assets/"
+  data-template="vertical-menu-template-free"
+>
   <head>
-    <title>SeoTracker</title>
-     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>Collapse - UI elements | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+
+    <meta name="description" content="" />
+
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../sneat-1.0.0/assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,33 +43,24 @@
     />
 
     <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="../sneat-1.0.0/assets/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="../sneat-1.0.0/assets/vendor/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="../sneat-1.0.0/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="../sneat-1.0.0/assets/css/demo.css" />
+    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../assets/css/demo.css" />
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="../sneat-1.0.0/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-
-    <link rel="stylesheet" href="../sneat-1.0.0/assets/vendor/libs/apex-charts/apex-charts.css" />
+    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
     <!-- Page CSS -->
 
     <!-- Helpers -->
-    <script src="../sneat-1.0.0/assets/vendor/js/helpers.js"></script>
+    <script src="../assets/vendor/js/helpers.js"></script>
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="../sneat-1.0.0/assets/js/config.js"></script>
-
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-
-
+    <script src="../assets/js/config.js"></script>
   </head>
 
   <body>
@@ -128,7 +139,7 @@
 
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
-            <li class="menu-item active">
+            <li class="menu-item">
               <a href="index.html" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
@@ -248,7 +259,7 @@
               </a>
             </li>
             <!-- User interface -->
-            <li class="menu-item">
+            <li class="menu-item active open">
               <a href="javascript:void(0)" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-box"></i>
                 <div data-i18n="User interface">User interface</div>
@@ -279,7 +290,7 @@
                     <div data-i18n="Carousel">Carousel</div>
                   </a>
                 </li>
-                <li class="menu-item">
+                <li class="menu-item active">
                   <a href="ui-collapse.html" class="menu-link">
                     <div data-i18n="Collapse">Collapse</div>
                   </a>
@@ -455,8 +466,10 @@
         <div class="layout-page">
           <!-- Navbar -->
 
-          <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
-            id="layout-navbar">
+          <nav
+            class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+            id="layout-navbar"
+          >
             <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
               <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
                 <i class="bx bx-menu bx-sm"></i>
@@ -496,7 +509,7 @@
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                      <img src="../sneat-1.0.0/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                      <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
@@ -560,8 +573,146 @@
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- Content -->
-          <div class="container-xxl flex-grow-1 container-p-y">
-            <%= yield %>
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">UI elements /</span> Collapse</h4>
+
+              <!-- Collapse -->
+              <h5>Collapse</h5>
+              <div class="row">
+                <div class="col-12">
+                  <div class="card mb-4">
+                    <h5 class="card-header">Basic</h5>
+                    <div class="card-body">
+                      <p class="card-text">
+                        Toggle the visibility of content across your project with a few classes and our JavaScript
+                        plugins.
+                      </p>
+                      <p class="demo-inline-spacing">
+                        <a
+                          class="btn btn-primary me-1"
+                          data-bs-toggle="collapse"
+                          href="#collapseExample"
+                          role="button"
+                          aria-expanded="false"
+                          aria-controls="collapseExample"
+                        >
+                          Link with href
+                        </a>
+                        <button
+                          class="btn btn-primary me-1"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#collapseExample"
+                          aria-expanded="false"
+                          aria-controls="collapseExample"
+                        >
+                          Button with data-bs-target
+                        </button>
+                      </p>
+                      <div class="collapse" id="collapseExample">
+                        <div class="d-grid d-sm-flex p-3 border">
+                          <img
+                            src="../assets/img/elements/1.jpg"
+                            alt="collapse-image"
+                            height="125"
+                            class="me-4 mb-sm-0 mb-2"
+                          />
+                          <span>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley of type and scrambled it to make a type specimen book. It has survived not only five
+                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+                            passages, and more recently with desktop publishing software like Aldus PageMaker including
+                            versions of Lorem Ipsum.It is a long established fact that a reader will be distracted by
+                            the readable content of a page when looking at its layout. The point of using Lorem Ipsum is
+                            that it has a more-or-less normal distribution of letters.
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="card">
+                    <h5 class="card-header">Multiple targets</h5>
+                    <div class="card-body">
+                      <p class="card-text">Show and hide multiple elements by referencing them with a selector.</p>
+
+                      <p class="demo-inline-spacing">
+                        <a
+                          class="btn btn-primary me-1"
+                          data-bs-toggle="collapse"
+                          href="#multiCollapseExample1"
+                          role="button"
+                          aria-expanded="false"
+                          aria-controls="multiCollapseExample1"
+                          >Toggle first element</a
+                        >
+                        <button
+                          class="btn btn-primary me-1"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#multiCollapseExample2"
+                          aria-expanded="false"
+                          aria-controls="multiCollapseExample2"
+                        >
+                          Toggle second element
+                        </button>
+                        <button
+                          class="btn btn-primary me-1"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target=".multi-collapse"
+                          aria-expanded="false"
+                          aria-controls="multiCollapseExample1 multiCollapseExample2"
+                        >
+                          Toggle both elements
+                        </button>
+                      </p>
+                      <div class="row">
+                        <div class="col-12 col-md-6 mb-2 mb-md-0">
+                          <div class="collapse multi-collapse" id="multiCollapseExample1">
+                            <div class="d-grid d-sm-flex p-3 border">
+                              <img
+                                src="../assets/img/elements/2.jpg"
+                                alt="collapse-image"
+                                height="125"
+                                class="me-4 mb-sm-0 mb-2"
+                              />
+                              <span>
+                                All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as
+                                necessary, making this the first true generator on the Internet. It uses a dictionary of
+                                over 200 Latin words, combined with a handful of model sentence structures, to generate
+                                Lorem Ipsum which looks reasonable.
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="collapse multi-collapse" id="multiCollapseExample2">
+                            <div class="d-grid d-sm-flex p-3 border">
+                              <img
+                                src="../assets/img/elements/3.jpg"
+                                alt="collapse-image"
+                                height="125"
+                                class="me-4 mb-sm-0 mb-2"
+                              />
+                              <span>
+                                There are many variations of passages of Lorem Ipsum available, but the majority have
+                                suffered alteration in some form, by injected humour, or randomised words which don't
+                                look even slightly believable. If you are going to use a passage of Lorem Ipsum.
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <!-- / Content -->
 
             <!-- Footer -->
@@ -609,27 +760,31 @@
     </div>
     <!-- / Layout wrapper -->
 
+    <div class="buy-now">
+      <a
+        href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/"
+        target="_blank"
+        class="btn btn-danger btn-buy-now"
+        >Upgrade to Pro</a
+      >
+    </div>
 
-
-
-      <!-- Core JS -->
+    <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
-    <script src="../sneat-1.0.0/assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="../sneat-1.0.0/assets/vendor/libs/popper/popper.js"></script>
-    <script src="../sneat-1.0.0/assets/vendor/js/bootstrap.js"></script>
-    <script src="../sneat-1.0.0/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-    <script src="../sneat-1.0.0/assets/vendor/js/menu.js"></script>
+    <script src="../assets/vendor/js/menu.js"></script>
     <!-- endbuild -->
 
     <!-- Vendors JS -->
-    <script src="../sneat-1.0.0/assets/vendor/libs/apex-charts/apexcharts.js"></script>
 
     <!-- Main JS -->
-    <script src="../sneat-1.0.0/assets/js/main.js"></script>
+    <script src="../assets/js/main.js"></script>
 
     <!-- Page JS -->
-    <script src="../sneat-1.0.0/assets/js/dashboards-analytics.js"></script>
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>

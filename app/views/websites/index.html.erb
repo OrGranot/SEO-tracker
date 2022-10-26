@@ -1,48 +1,62 @@
-<h1>האתרים שלי</h1>
+<div class="row">
+  <div class="col-lg-10 mb-4 order-0">
+      <div class="card">
+        <div class="d-flex align-items-end row">
+          <div class="col-sm-7">
+            <div class="card-body">
+            <h2 class="card-title text-primary">האתרים שלי</h2>
 
-<table class="text-center mb-3">
-  <thead>
-    <tr>
-      <th></th>
-      <th>שם האתר</th>
-      <th>כתובת האתר</th>
-    </tr>
-  </thead>
+            <table class="text-center mb-3">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>שם האתר</th>
+                  <th>כתובת האתר</th>
+                </tr>
+              </thead>
 
-  <tbody>
-    <% @websites.each do |website| %>
-      <tr>
-        <td><%= link_to website, method: :delete, data: { confirm: 'אתה בטוח? כל המידע יאבד' }, class: "text-danger" do %>
-        <i class="">X</i>
-        <% end %></td>
-        <td class="px-3"><%= link_to website.name, website, class: "" %></td>
-        <td class="px-3"><%= website.url %></td>
+              <tbody>
+                <% @websites.each do |website| %>
+                  <tr>
+                    <td><%= link_to website, method: :delete, data: { confirm: 'אתה בטוח? כל המידע יאבד' }, class: "text-danger" do %>
+                    <i class="">X</i>
+                    <% end %></td>
+                    <td class="px-3"><%= link_to website.name, website, class: "" %></td>
+                    <td class="px-3"><%= website.url %></td>
 
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= link_to 'ליצירת אתר חדש', new_website_path %>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+            <%= link_to 'ליצירת אתר חדש', new_website_path %>
 
-<h1 class="mt-5">אתרים משותפים</h1>
+            <h1 class="mt-5">אתרים משותפים</h1>
 
-<table class="text-center">
-  <thead>
-    <tr>
-      <th class="px-3">שם האתר</th>
-      <th class="px-3">כתובת האתר</th>
-      <th class="px-3">משתמש ראשי</th>
-    </tr>
-  </thead>
+            <table class="text-center">
+              <thead>
+                <tr>
+                  <th class="px-3">שם האתר</th>
+                  <th class="px-3">כתובת האתר</th>
+                  <th class="px-3">משתמש ראשי</th>
+                </tr>
+              </thead>
 
-  <tbody>
-    <% @shared_websites.each do |shared_website| %>
-      <tr>
-        <td class="px-3"><%= link_to shared_website.website.name, shared_website, class: "" %></td>
-        <td class="px-3"><%= shared_website.website.url %></td>
-        <td class="px-3"><%= shared_website.website.user.email %></td>
+              <tbody>
+                <% @shared_websites.each do |shared_website| %>
+                  <tr>
+                    <td class="px-3"><%= link_to shared_website.website.name, shared_website, class: "" %></td>
+                    <td class="px-3"><%= shared_website.website.url %></td>
+                    <td class="px-3"><%= shared_website.website.user.email %></td>
 
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
