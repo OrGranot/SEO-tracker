@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="card shadow-sm">
+
+  <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center px-4">
       <div class="d-flex align-items-center gap-2 px-4">
         <h1 class="m-0 text-center fw-bold">
@@ -9,39 +9,7 @@
       </div>
       <div class="d-flex gap-2 align-items-center">
 
-        <div class="drop-down" data-controller="dropdown">
-          <button class="dropdown-btn" data-dropdown-target="dropdownBtn" data-action="dropdown#click" type="button" >
-            <i class="fa-solid fa-bars h4" data-dropdown-target="iconopen"></i>
-            <i class="fa-solid fa-xmark d-none" data-dropdown-target="iconclose"></i>
-          </button>
-          <div class="custom-drop-down-menu" data-dropdown-target="menu" aria-labelledby="dropdownMenuButton">
-            <div class="dropdown-item-custom">
-              <%= link_to new_shared_website_path(:website_id => @website.id), class: "dropdown-link" do %>
-                <i class="fa-solid fa-user-plus"></i>
-                שתף
-              <% end %>
-            </div>
 
-            <div class="dropdown-item-custom">
-              <%= link_to new_shared_website_path(:website_id => @website.id), class: "dropdown-link" do %>
-                <i class="fa-solid fa-pen-to-square"></i>
-                עריכה
-              <% end %>
-            </div>
-            <div class="dropdown-item-custom">
-              <a class="dropdown-link" href="#">
-                <i class="fa-solid fa-ban"></i>
-                מחק
-              </a>
-            </div>
-            <div class="dropdown-item-custom">
-              <%= link_to URI::HTTP.build({:host => @website.url}).to_s, class: 'dropdown-link', target: "_blank" do %>
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                <%= @website.url %>
-              <% end %>
-            </div>
-          </div>
-        </div>
 
       </div>
 
@@ -59,7 +27,9 @@
         <% end %>
       </div>
 
-    <table class="table table-striped">
+
+    <div class="" style="overflow-x:auto;">
+     <table class="table table-striped">
       <thead>
         <tr>
           <th class="" scope="col"></th>
@@ -95,10 +65,11 @@
         <% end %>
        </tbody>
     </table>
+    </div>
+
 
     <div class="links d-flex justify-content-between align-items-center gap-3">
       <%= link_to "בדוק מיקומים", website_search_add_path(@website), class: "btn btn-primary " %>
     </div>
     </div>
   </div>
-</div>

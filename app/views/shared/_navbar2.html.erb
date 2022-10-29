@@ -1,0 +1,26 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon mb-5">
+  <div class="container-fluid">
+    <div class="navbar-brand">
+      <%= link_to root_path do %>
+        <%= image_tag "logo.png", alt: 'logo', style: 'height:3rem;width:auto;' %>
+      <% end %>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto d-flex align-items-center">
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= current_user.email %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "התנתקות", destroy_user_session_path, method: :delete,class: "nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "התחברות", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

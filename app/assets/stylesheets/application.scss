@@ -21,3 +21,29 @@ $fa-font-path: "@fortawesome/fontawesome-free/webfonts";
 @import "@fortawesome/fontawesome-free/scss/solid";
 @import "@fortawesome/fontawesome-free/scss/regular";
 @import "@fortawesome/fontawesome-free/scss/v4-shims";
+
+
+.layout-menu {
+  right: 0 !important;
+
+  @media (max-width: 1200px) {
+    transform: translate3d(100%, 0, 0) !important;
+  }
+}
+
+.layout-page {
+  padding-left: 0 !important;
+
+  @media (min-width: 1200px) {
+    padding-right: 16.25em !important;
+  }
+
+  .layout-menu {
+    left: 100% !important;
+    // right: 0 !important;
+
+    @media (max-width: 1200px) {
+      transform: translate3d(100%, 0, 0) !important;
+    }
+  }
+}

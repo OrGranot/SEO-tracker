@@ -3,19 +3,19 @@
       <div class="card">
         <div class="d-flex align-items-end row">
           <div class="col-sm-7">
-            <div class="card-body">
-            <h2 class="card-title text-primary">האתרים שלי</h2>
+            <h2 class="card-header text-primary">האתרים שלי</h2>
+            <div class="table-responsive text-nowrap">
 
-            <table class="text-center mb-3">
+            <table class="table mb-3">
               <thead>
-                <tr>
+                <tr class="text-nowrap">
                   <th></th>
                   <th>שם האתר</th>
                   <th>כתובת האתר</th>
                 </tr>
               </thead>
 
-              <tbody>
+              <tbody class="table-border-bottom-0">
                 <% @websites.each do |website| %>
                   <tr>
                     <td><%= link_to website, method: :delete, data: { confirm: 'אתה בטוח? כל המידע יאבד' }, class: "text-danger" do %>
