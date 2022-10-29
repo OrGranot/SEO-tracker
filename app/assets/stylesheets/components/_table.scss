@@ -3,6 +3,7 @@
   gap: 3rem;
   text-align: center;
   width: fit-content;
+
   thead {
     background-color: $gray;
     color: $light-gray;
@@ -18,7 +19,9 @@
     text-align: start;
     font-weight: bold;
   }
-
+  .date {
+    text-align: center;
+  }
   .rank {
     position: relative;
 

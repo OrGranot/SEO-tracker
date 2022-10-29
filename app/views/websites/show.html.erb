@@ -2,25 +2,20 @@
   <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center px-4">
       <div class="d-flex align-items-center gap-2 px-4">
-        <h1 class="m-0 text-center fw-bold">
+        <h2 class="m-0 text-center fw-bold text-primary">
           <%= @website.name %>
-        </h1>
+        </h2>
          <div class="text-muted h6 mt-2 mb-0">(<%= @website.url %>)</div>
       </div>
-      <div class="d-flex gap-2 align-items-center">
-
-
-
-      </div>
-
     </div>
+
     <div class="card-body p-0" data-controller="table">
-      <div class="new-key-word d-flex mb-2">
+      <div class="input-group d-flex mb-2 me-2">
         <% keyword = Keyword.new %>
         <%= simple_form_for [ @website, keyword ] do |f| %>
         <div class="d-flex gap-2 align-items-center">
-            <%= f.input_field :key_string, :label => false  , placeholder: "הזן מילות חיפוש" %>
-            <%= button_tag(type: 'submit', class: "btn-custom") do %>
+            <%= f.input_field :key_string, :label => false  , placeholder: "הזן מילות חיפוש", class: "form-control", "aria-label": "הזן מילות חיפוש"  %>
+            <%= button_tag(type: 'submit', class: "btn btn-outline-primary", id: "button-addon2") do %>
               הוסף
             <% end %>
         </div>
