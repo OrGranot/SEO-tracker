@@ -2,15 +2,13 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5em 1em;
-  background-color: $light-gray;
+  height: var(--header-height);
+  background-color: white;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
   box-shadow: 0 0 5px 1px rgba($color: #000000, $alpha: 0.2);
 
-  .container-fluid {
-    // display: flex;
-    // align-content: center;
-  }
+
 
   h4 {
     margin: 0;

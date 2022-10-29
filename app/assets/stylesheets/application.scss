@@ -21,3 +21,17 @@ $fa-font-path: "@fortawesome/fontawesome-free/webfonts";
 @import "@fortawesome/fontawesome-free/scss/solid";
 @import "@fortawesome/fontawesome-free/scss/regular";
 @import "@fortawesome/fontawesome-free/scss/v4-shims";
+
+:root {
+  --header-height: 7rem;
+}
+
+.page_layout {
+  display: flex;
+  min-height: calc(100vh - var(--header-height));
+  background-color: $light-gray;
+}
+
+.page_content {
+  margin: 1rem;
+}
