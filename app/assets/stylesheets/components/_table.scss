@@ -1,0 +1,89 @@
+.table {
+  // display: flex;
+  gap: 3rem;
+  text-align: center;
+  width: fit-content;
+  border: 1px solid black;
+  thead {
+    background-color: $gray;
+    color: $light-gray;
+    font-weight: 400;
+    font-size: 0.875rem;
+  }
+
+  th {
+    text-align: start;
+
+  }
+  .keyword {
+    text-align: start;
+    font-weight: bold;
+  }
+
+  .date {
+
+  }
+
+  .rank {
+    position: relative;
+
+    &::after {
+      opacity: 0.7;
+      font-size: 0.8rem;
+      position: absolute;
+      padding-inline-start: 0.1em;
+      font-family: "Font Awesome 5 Free";
+      font-weight: 600;
+      display: inline-block;
+      font-style: normal;
+      font-variant: normal;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+
+      // top: 25%;
+    }
+  }
+  .rank.higher-rank {
+    color: $green;
+
+    &::after {
+      // top: 0;
+      // transform: rotate(calc(-1 * var(--angle))) translate(var(--spacing), var(--spacing));
+      transform: translateY(25%);
+      content: "\f0de";
+    }
+  }
+  .rank.lower-rank {
+    color: $red;
+
+    &::after {
+      // bottom: 0;
+      // transform: rotate(var(--angle)) translate(var(--spacing), calc(-1 * var(--spacing)));
+      // transform: translateY(-25%);
+      content: "\f0dd";
+    }
+  }
+
+  .blank {
+    height: 100%;
+  }
+}
+
+.table {
+  background-color: white;
+
+  td {
+    text-align: center;
+  }
+}
+.sticky-cell {
+  z-index: 1;
+  position: sticky;
+  right: 1.3rem;
+
+}
+.sticky-cell-options {
+  z-index: 1;
+  position: sticky;
+  right: -10px;
+}

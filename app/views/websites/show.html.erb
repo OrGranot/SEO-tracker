@@ -30,10 +30,10 @@
 
     <div class="" style="overflow-x:auto;">
      <table class="table table-striped">
-      <thead>
+      <thead class="bg-white">
         <tr>
-          <th class="" scope="col"></th>
-          <th class="" scope="col">מילות חיפוש</th>
+          <th class="bg-white sticky-cell-options" scope="col"></th>
+          <th class="sticky-cell" scope="col">מילות חיפוש</th>
           <% @dates.each do |date| %>
           <th scope="col" class="date"><%= date.strftime('%d/%m/%Y') %></th>
         <% end %>
@@ -45,10 +45,10 @@
         <% @keywords.each do |keyword| %>
         <% last_search = keyword.searches.first %>
         <tr>
-          <td><%= link_to website_keyword_path(@website, keyword), method: :delete, data: { confirm: 'אתה בטוח? כל המידע יאבד' }, class: "text-danger" do %>
+          <td class="sticky-cell-options"><%= link_to website_keyword_path(@website, keyword), method: :delete, data: { confirm: 'אתה בטוח? כל המידע יאבד' }, class: "text-danger" do %>
             <i class="btn p-0 text-danger">X</i>
           <% end %></td>
-          <td class="keyword" scope="row"><%= keyword.key_string %></td>
+          <td class="keyword sticky-cell" scope="row"><%= keyword.key_string %></td>
           <% @dates.each do |date| %>
             <% search = keyword.searches.select{|search| search[:date] == date}[0] %>
             <% if search %>

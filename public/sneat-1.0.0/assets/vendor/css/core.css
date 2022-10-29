@@ -1943,7 +1943,7 @@ progress {
   }
 }
 .table {
-  --bs-table-bg: transparent;
+  --bs-table-bg: white;
   --bs-table-accent-bg: transparent;
   --bs-table-striped-color: #697a8d;
   --bs-table-striped-bg: #f9fafb;
@@ -15047,10 +15047,10 @@ html:not(.layout-menu-fixed) .menu-inner-shadow {
   border: 1px solid;
   border-bottom: 0;
   border-left: 0;
-  transform: translateY(-50%) rotate(45deg);
+  transform: translateY(-50%) rotate(-135deg);
 }
 .menu-item.open:not(.menu-item-closing) > .menu-toggle::after {
-  transform: translateY(-50%) rotate(135deg);
+  transform: translateY(-50%) rotate(-225deg);
 }
 .menu:not(.menu-no-animation) .menu-toggle::after {
   transition-duration: 0.3s;
@@ -15133,7 +15133,7 @@ html:not(.layout-menu-fixed) .menu-inner-shadow {
   flex: none;
 }
 .menu-vertical .menu-sub .menu-link {
-  padding-left: 3rem;
+  padding-right: 3rem;
 }
 .menu-vertical .menu-sub .menu-sub .menu-link {
   padding-left: 3.65rem;
