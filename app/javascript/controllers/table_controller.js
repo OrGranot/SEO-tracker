@@ -13,7 +13,6 @@ export default class extends Controller {
   static targets = [ "scollable" ]
 
   connect() {
-    console.log("stimulus", this.scollableTarget)
     this.scollableTarget.scrollLeft -= this.scollableTarget.scrollWidth;
   }
 }
