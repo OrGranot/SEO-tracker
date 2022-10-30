@@ -76,5 +76,23 @@
       z-index: 1;
       position: sticky;
       right: -10px;
+      width: 1rem;
     }
+
+
 }
+  .website-options {
+    display: flex;
+    gap: 0.5em;
+    padding-left: 0.5em;
+    border-left: 0.1px solid rgba($primary, 0.2);
+
+    .options-icon {
+      font-size: 0.8rem;
+      opacity: 0.8;
+
+      &:hover{
+        opacity: 1;
+      }
+    }
+  }

@@ -21,50 +21,49 @@
         </div>
         <% end %>
       </div>
-
-
-    <div class="mb-2" style="overflow-x:auto;" data-table-target="scollable">
-     <table class="table table-striped" >
-      <thead class="bg-white">
-        <tr>
-          <th class="bg-white sticky-cell-options" scope="col"></th>
-          <th class="sticky-cell" scope="col">מילות חיפוש</th>
-          <% @dates.each do |date| %>
-          <th scope="col" class="date"><%= date.strftime('%d/%m/%Y') %></th>
+      <% if @keywords.length != 0 %>
+        <div class="mb-2" style="overflow-x:auto;" data-table-target="scollable">
+          <table class="table table-striped" >
+            <thead class="bg-white">
+              <tr>
+                <th class="bg-white sticky-cell-options" scope="col"></th>
+                <th class="sticky-cell" scope="col">מילות חיפוש</th>
+                <% @dates.each do |date| %>
+                <th scope="col" class="date"><%= date.strftime('%d/%m/%Y') %></th>
+              <% end %>
+              </tr>
+            </thead>
+            <tbody>
+              <% @keywords.each do |keyword| %>
+              <% last_search = keyword.searches.first %>
+              <tr>
+                <td class="sticky-cell-options"><%= link_to website_keyword_path(@website, keyword), method: :delete, data: { confirm: 'אתה בטוח? כל המידע יאבד' }, class: "text-danger" do %>
+                  <i class="btn p-0 text-danger">X</i>
+                <% end %></td>
+                <td class="keyword sticky-cell" scope="row"><%= keyword.key_string %></td>
+                <% @dates.each do |date| %>
+                  <% search = keyword.searches.select{|search| search[:date] == date}[0] %>
+                  <% if search %>
+                    <% change = 'same-rank' if search.rank.to_i == last_search.rank.to_i
+                      change = 'lower-rank' if search.rank.to_i > last_search.rank.to_i
+                      change = 'higher-rank' if search.rank.to_i < last_search.rank.to_i %>
+                    <td class = "<%= "rank " + change %>"><%= search.rank %></td>
+                  <% else %>
+                    <td class = "rank"> - </td>
+                  <% end %>
+                  <% last_search = search unless search.nil? %>
+                <% end %>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      <% end %>
+      <div class="links d-flex justify-content-start align-items-center gap-3 p-3">
+        <% if @keywords.length != 0 %>
+          <%= link_to "בדוק מיקומים", website_search_add_path(@website), class: "btn btn-primary " %>
         <% end %>
-        </tr>
-      </thead>
-      <tbody>
-
-
-        <% @keywords.each do |keyword| %>
-        <% last_search = keyword.searches.first %>
-        <tr>
-          <td class="sticky-cell-options"><%= link_to website_keyword_path(@website, keyword), method: :delete, data: { confirm: 'אתה בטוח? כל המידע יאבד' }, class: "text-danger" do %>
-            <i class="btn p-0 text-danger">X</i>
-          <% end %></td>
-          <td class="keyword sticky-cell" scope="row"><%= keyword.key_string %></td>
-          <% @dates.each do |date| %>
-            <% search = keyword.searches.select{|search| search[:date] == date}[0] %>
-            <% if search %>
-              <% change = 'same-rank' if search.rank.to_i == last_search.rank.to_i
-                 change = 'lower-rank' if search.rank.to_i > last_search.rank.to_i
-                 change = 'higher-rank' if search.rank.to_i < last_search.rank.to_i %>
-              <td class = "<%= "rank " + change %>"><%= search.rank %></td>
-            <% else %>
-              <td class = "rank"> - </td>
-            <% end %>
-            <% last_search = search unless search.nil? %>
-          <% end %>
-        </tr>
-        <% end %>
-       </tbody>
-    </table>
-    </div>
-
-
-    <div class="links d-flex justify-content-between align-items-center gap-3 p-3">
-      <%= link_to "בדוק מיקומים", website_search_add_path(@website), class: "btn btn-primary " %>
-    </div>
+        <%= link_to "חזור", websites_path, class: "btn btn-outline-primary " %>
+      </div>
     </div>
   </div>

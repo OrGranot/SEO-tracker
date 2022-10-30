@@ -22,7 +22,7 @@
                       <%= link_to website, method: :delete, data: { confirm: 'אתה בטוח? כל המידע יאבד' }, class: "text-danger" do %>
                         <i class="options-icon ">X</i>
                       <% end %>
-                      <%= link_to new_shared_website_path, class: "" do %>
+                      <%= link_to new_shared_website_path(:website_id => website.id), class: "" do %>
                         <i class="options-icon fa-regular fa-share-from-square"></i>
                       <% end %>
                     </td>
