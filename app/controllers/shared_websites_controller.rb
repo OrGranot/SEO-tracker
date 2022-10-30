@@ -53,7 +53,7 @@ class SharedWebsitesController < ApplicationController
     @shared_website.destroy
 
     respond_to do |format|
-      format.html { redirect_to shared_websites_url, notice: "Shared website was successfully destroyed." }
+      format.html { redirect_to websites_path, notice: "Shared website was successfully destroyed." }
       format.json { head :no_content }
     end
   end

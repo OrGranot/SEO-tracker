@@ -68,6 +68,10 @@
                 </div>
               </div>
             </div>
+          <% else %>
+            <%= link_to shared_website, method: :delete, data: { confirm: 'אתה בטוח? השיתוף ימחק' }, class: "btn" do %>
+              <i class="text-danger fa-solid fa-trash"></i>
+            <% end %>
           <% end %>
         </div>
       </div>
