@@ -10,9 +10,8 @@
             <%= website.url %>
           <% end %>
         )</div>
-        <% if role == 'owner' %>
-          <div class="website-links d-flex align-items-center">
-
+        <div class="website-links d-flex align-items-center">
+          <% if role == 'owner' %>
             <button
               type="button"
               class="btn"
@@ -69,8 +68,8 @@
                 </div>
               </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
 

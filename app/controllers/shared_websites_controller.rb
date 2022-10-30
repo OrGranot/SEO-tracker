@@ -1,5 +1,6 @@
 class SharedWebsitesController < ApplicationController
   before_action :set_shared_website, only: %i[ show edit update destroy ]
+  before_action :set_websites
 
   def show
     @keywords = @shared_website.website.keywords
@@ -71,5 +72,10 @@ class SharedWebsitesController < ApplicationController
   def validate_website(id)
     id.to_i
     Website.exists?(id) && Website.find(id).user == current_user
+  end
+
+  def set_websites
+    @websites = current_user.websites.all
+    @shared_websites = current_user.shared_websites.all
   end
 end

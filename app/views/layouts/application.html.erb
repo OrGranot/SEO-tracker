@@ -38,7 +38,7 @@
     <!-- Page CSS -->
 
     <!-- Helpers -->
-    <script src="../sneat-1.0.0/assets/vendor/js/helpers.js" ></script>
+    <script src="../sneat-1.0.0/assets/vendor/js/helpers.js"></script>
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
@@ -58,16 +58,16 @@
       <div class="layout-container">
 
 
-        <%= render 'shared/sidenav' %>
+        <%= render 'shared/sidenav' if user_signed_in? %>
+
         <!-- Layout container -->
         <div class="layout-page">
-          <%= render 'shared/sidenav' %>
+          <%= render 'shared/sidenav' if user_signed_in?  %>
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- Content -->
             <%= render 'shared/navbar' %>
             <div class="container-xxl flex-grow-1 container-p-y">
-              <%= render 'shared/flashes' %>
               <%= yield %>
               <!-- / Content -->
               <div class="content-backdrop fade"></div>

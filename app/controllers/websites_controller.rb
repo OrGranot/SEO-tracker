@@ -1,5 +1,6 @@
 class WebsitesController < ApplicationController
   before_action :set_website, only: %i[ show edit update destroy ]
+  before_action :set_websites
 
   # GET /websites or /websites.json
   def index
@@ -80,6 +81,11 @@ class WebsitesController < ApplicationController
   def set_website
     @website = Website.find(params[:id])
     redirect_to root_path, alert: "Action unauthorized" if @website.user != current_user
+  end
+
+  def set_websites
+    @websites = current_user.websites.all
+    @shared_websites = current_user.shared_websites.all
   end
 
   # Only allow a list of trusted parameters through.

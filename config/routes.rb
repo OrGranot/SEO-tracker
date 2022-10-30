@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :shared_websites, only: [:create, :udpate, :destroy, :show]
+  resources :shared_websites
   resources :websites do
     get 'search/add'
     resources :keywords

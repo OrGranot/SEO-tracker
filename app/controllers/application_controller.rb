@@ -5,7 +5,9 @@ class ApplicationController < ActionController::Base
   private
 
   def set_websites
-    @websites = current_user.websites.all
-    @shared_websites = current_user.shared_websites.all
+    if user_signed_in?
+      @websites = current_user.websites.all
+      @shared_websites = current_user.shared_websites.all
+    end
   end
 end
