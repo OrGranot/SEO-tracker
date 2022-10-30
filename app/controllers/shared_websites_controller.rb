@@ -59,9 +59,11 @@ class SharedWebsitesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
+  # Use callbacks to share common setup or constraints between actions.
   def set_shared_website
-    @shared_website = SharedWebsite.find(params[:id])
+    @shared_website = SharedWebsite.find_by_id(params[:id])
+    redirect_to websites_path if @shared_website.nil?
   end
 
   # Only allow a list of trusted parameters through.

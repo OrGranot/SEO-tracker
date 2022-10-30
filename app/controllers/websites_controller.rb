@@ -79,8 +79,8 @@ class WebsitesController < ApplicationController
   private
 
   def set_website
-    @website = Website.find(params[:id])
-    redirect_to root_path, alert: "Action unauthorized" if @website.user != current_user
+    @website = Website.find_by_id(params[:id])
+    redirect_to websites_path, alert: "Action unauthorized" if @website.nil? || @website.user != current_user
   end
 
   def set_websites
