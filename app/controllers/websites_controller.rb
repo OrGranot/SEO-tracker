@@ -3,6 +3,7 @@ class WebsitesController < ApplicationController
 
   # GET /websites or /websites.json
   def index
+    @website = Website.new
     @websites = Website.where(user: current_user)
     @shared_websites = SharedWebsite.where(user: current_user)
   end
@@ -29,7 +30,6 @@ class WebsitesController < ApplicationController
 
   # GET /websites/new
   def new
-    @website = Website.new
   end
 
   # GET /websites/1/edit
@@ -41,12 +41,10 @@ class WebsitesController < ApplicationController
     @website = Website.new(website_params)
     @website.url = @website.url.gsub(/(^https?\:\/\/|(\/|\?).*$)/, '')
     @website.user = current_user
-    respond_to do |format|
-      if @website.save
-        format.html { redirect_to website_url(@website), notice: "Website was successfully created." }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-      end
+    if @website.save
+      redirect_to website_url(@website)
+    else
+      redirect_to websites_path
     end
   end
 

@@ -33,7 +33,34 @@
                 <% end %>
               </tbody>
             </table>
-            <%= link_to 'ליצירת אתר חדש', new_website_path, class: "btn btn-primary" %>
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#backDropModal"
+              >
+                הוסף אתר חדש
+              </button>
+
+              <div class="modal fade" id="backDropModal" data-bs-backdrop="static" tabindex="-1">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title mt-4 text-primary" id="backDropModalTitle">הוספת אתר חדש</h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <%= render 'form', website: @website, tag: "צור" %>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
 
             </div>
           </div>

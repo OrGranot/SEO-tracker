@@ -10,8 +10,10 @@
 
   <div class="form-actions">
     <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
-          <%= tag %>
-      <% end %>
-    <%= link_to "חזור" ,:back, class: "btn btn-secondary" %>
+      <%= tag %>
+    <% end %>
+    <%= button_tag(type: 'button' , class: "btn btn-outline-secondary", data: { "bs-dismiss": "modal" } ) do %>
+      סגירה
+    <% end %>
   </div>
 <% end %>

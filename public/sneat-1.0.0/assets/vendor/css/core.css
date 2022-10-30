@@ -4680,6 +4680,7 @@ textarea.form-control-lg {
 }
 
 .modal-header {
+  position: relative;
   display: flex;
   flex-shrink: 0;
   align-items: center;
@@ -4690,8 +4691,11 @@ textarea.form-control-lg {
   border-top-right-radius: calc(0.5rem - 0px);
 }
 .modal-header .btn-close {
-  padding: 0.125rem 0.75rem;
-  margin: -0.125rem -0.75rem -0.125rem auto;
+  /* padding: 0.125rem 0.75rem;
+  margin: -0.125rem -6.75rem -0.125rem auto; */
+  position: absolute;
+  top: 0;
+  right: -5px;
 }
 
 .modal-title {
@@ -4723,7 +4727,7 @@ textarea.form-control-lg {
 @media (min-width: 576px) {
   .modal-dialog {
     max-width: 35rem;
-    margin: 1.75rem auto;
+    margin: 4.75rem auto;
   }
 
   .modal-dialog-scrollable {
@@ -7946,12 +7950,12 @@ form select.selectpicker.is-invalid ~ .btn {
   padding: 0.635rem;
   box-shadow: 0 0.125rem 0.25rem rgba(161, 172, 184, 0.4);
   transition: all 0.23s ease 0.1s;
-  transform: translate(23px, -25px);
+  /* transform: translate(23px, -25px); */
 }
 .modal .btn-close:hover, .modal .btn-close:focus, .modal .btn-close:active {
   opacity: 1;
   outline: none;
-  transform: translate(20px, -20px);
+  transform: translate(-10px, 10px);
 }
 .modal .modal-header .btn-close {
   margin-top: -1.25rem;
