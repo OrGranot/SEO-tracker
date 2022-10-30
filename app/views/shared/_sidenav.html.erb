@@ -20,52 +20,48 @@
             <li class="menu-item active">
             <%= link_to root_path, class: 'menu-link' do %>
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">האתרים שלי</div>
+                <div data-i18n="Analytics">לוח מנהל</div>
             <% end %>
             </li>
 
             <!-- Layouts -->
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-layout"></i>
-                <div data-i18n="Layouts">לינק מתרחב</div>
-              </a>
 
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="#" class="menu-link">
-                    <div data-i18n="Without menu">דוגמא ללינק</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
 
             <li class="menu-header small text-uppercase">
-              <span class="menu-header-text">קבוצה</span>
+              <span class="menu-header-text">מיקום אתרים</span>
             </li>
+
             <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                <div data-i18n="Account Settings">לינק מתרחב</div>
-              </a>
+              <button class="btn menu-link menu-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="menu-icon tf-icons bx bx-dock-top m-0 ms-1"></i>
+                האתרים שלי
+              </button>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="#" class="menu-link">
-                    <div data-i18n="Account">לינק</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="#" class="menu-link">
-                    <div data-i18n="Notifications">לינק</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="#" class="menu-link">
-                    <div data-i18n="Connections">לינק</div>
-                  </a>
+                  <% @websites.each do |website| %>
+                    <%= link_to website, class: "menu-link" do %>
+                      <div data-i18n="Account"><%= website.name %></div>
+                    <% end %>
+                <% end %>
                 </li>
               </ul>
+            </li>
 
+            <li class="menu-item dropdown">
+              <button class="btn menu-link menu-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="menu-icon tf-icons bx bx-dock-top m-0 ms-1"></i>
+                משותפים איתי
+              </button>
 
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <% @shared_websites.each do |website| %>
+                    <%= link_to website, class: "menu-link" do %>
+                      <div data-i18n="Account"><%= website.website.name %></div>
+                    <% end %>
+                <% end %>
+                </li>
+              </ul>
+            </li>
           </ul>
         </aside>

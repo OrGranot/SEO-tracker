@@ -39,7 +39,7 @@ class SharedWebsitesController < ApplicationController
           format.html { redirect_to website_path(@shared_website.website), notice: "Shared website was successfully created." }
           format.json { render :show, status: :created, location: @shared_website }
         else
-          format.html { render :new, status: :unprocessable_entity }
+          format.html { redirect_to website_path(@shared_website.website), notice: "User already shared" }
           format.json { render json: @shared_website.errors, status: :unprocessable_entity }
         end
       end

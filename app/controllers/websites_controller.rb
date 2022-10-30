@@ -12,6 +12,7 @@ class WebsitesController < ApplicationController
   # GET /websites/1 or /websites/1.json
 
   def show
+
     @keywords = @website.keywords
     @dates = @keywords.map do |keyword|
       keyword.searches.map {|search| search.date}

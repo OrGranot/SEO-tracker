@@ -15104,7 +15104,7 @@ html:not(.layout-menu-fixed) .menu-inner-shadow {
   font-weight: 600;
 }
 .menu-vertical .menu-item .menu-toggle {
-  padding-right: calc(1rem + 1.26em);
+  padding-right: calc(1rem + 0.9em);
 }
 .menu-vertical .menu-item .menu-toggle::after {
   right: 1rem;

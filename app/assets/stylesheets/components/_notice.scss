@@ -1,0 +1,14 @@
+.alert {
+  right: 50%;
+  translate: 50% 0;
+  width: 50%;
+  background-color: rgba($primary, 0.1) !important;
+  border: 1px solid rgba($primary, 0.7) !important;
+  color: $primary !important;
+  padding-right: 0 !important;
+
+  .btn {
+    padding-right: 1em !important;
+    padding-left: 0.5em !important;
+  }
+}

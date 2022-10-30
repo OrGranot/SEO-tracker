@@ -4,12 +4,13 @@
 
 'use strict';
 
-let menu, animate;
+
+
 
 (function () {
   // Initialize menu
   //-----------------
-
+  let menu, animate;
   let layoutMenuEl = document.querySelectorAll('#layout-menu');
   layoutMenuEl.forEach(function (element) {
     menu = new Menu(element, {
