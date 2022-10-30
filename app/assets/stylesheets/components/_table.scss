@@ -69,7 +69,8 @@
       z-index: 1;
       position: sticky;
       right: 1.3rem;
-
+      white-space: nowrap;
+      padding-left: 2em;
     }
 
     .sticky-cell-options {
