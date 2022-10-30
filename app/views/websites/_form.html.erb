@@ -5,7 +5,9 @@
 
   <div class="form-inputs">
     <%= f.input :name, :label => "שם האתר" %>
-    <%= f.input :url, :label => "כתובת האתר"  %>
+    <% if @website.url == nil %>
+      <%= f.input :url, :label => "כתובת האתר"  %>
+    <% end %>
   </div>
 
   <div class="form-actions">

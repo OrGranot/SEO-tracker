@@ -51,7 +51,7 @@ class WebsitesController < ApplicationController
   # PATCH/PUT /websites/1 or /websites/1.json
   def update
     respond_to do |format|
-      if @website.update(website_params)
+      if @website.update(website_params_update)
         format.html { redirect_to website_url(@website), notice: "Website was successfully updated." }
         format.json { render :show, status: :ok, location: @website }
       else
@@ -72,14 +72,18 @@ class WebsitesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_website
-      @website = Website.find(params[:id])
-      redirect_to root_path, alert: "Action unauthorized" if @website.user != current_user
-    end
 
-    # Only allow a list of trusted parameters through.
-    def website_params
-      params.require(:website).permit(:name, :url)
-    end
+  def set_website
+    @website = Website.find(params[:id])
+    redirect_to root_path, alert: "Action unauthorized" if @website.user != current_user
+  end
+
+  # Only allow a list of trusted parameters through.
+  def website_params
+    params.require(:website).permit(:name, :url)
+  end
+
+  def website_params_update
+    params.require(:website).permit(:name)
+  end
 end

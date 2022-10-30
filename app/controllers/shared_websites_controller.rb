@@ -21,7 +21,6 @@ class SharedWebsitesController < ApplicationController
   def new
     redirect_to root_path if validate_website(params[:website_id]) == false
     @shared_website = SharedWebsite.new
-
   end
 
   def create
@@ -30,10 +29,11 @@ class SharedWebsitesController < ApplicationController
       website = Website.find(params[:shared_website][:website_id].to_i)
       role = 'viewer' if params[:shared_website][:role] == 'צפיה בלבד'
       role = 'editor' if params[:shared_website][:role] == 'עריכה'
-      @shared_website = SharedWebsite.new()
+      @shared_website = SharedWebsite.new
       @shared_website.user = user
       @shared_website.website = website
       @shared_website.role = role
+
       respond_to do |format|
         if @shared_website.save
           format.html { redirect_to website_path(@shared_website.website), notice: "Shared website was successfully created." }

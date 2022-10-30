@@ -1,15 +1,79 @@
 
   <div class="card">
-    <div class="card-header d-flex justify-content-between align-items-center px-4">
-      <div class="d-flex align-items-center gap-2">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center gap-2 w-100">
         <h2 class="m-0 text-center fw-bold text-primary">
           <%= @website.name %>
         </h2>
-        <div class="text-muted h6 mt-2 mb-0">(<%= @website.url %>)</div>
+        <div class="h6 mt-2 mb-0 flex-grow-1">(
+          <%= link_to URI::HTTP.build({:host => @website.url}).to_s, class: 'text-muted dropdown-link', target: "_blank" do %>
+            <i class="text-muted fa-solid fa-arrow-up-right-from-square"></i>
+            <%= @website.url %>
+          <% end %>
+        )</div>
+        <div class="website-links d-flex align-items-center">
+
+          <button
+            type="button"
+            class="btn"
+            data-bs-toggle="modal"
+            data-bs-target="#shareWebsiteModal"
+          >
+            <i class="fa-solid fa-user-plus"></i>
+          </button>
+          <button
+            type="button"
+            class="btn"
+            data-bs-toggle="modal"
+            data-bs-target="#editWebsiteModal"
+          >
+            <i class="fa-regular fa-pen-to-square"></i>
+          </button>
+          <%= link_to @website, method: :delete, data: { confirm: 'אתה בטוח? כל המידע יאבד' }, class: "btn" do %>
+            <i class="text-danger fa-solid fa-trash"></i>
+          <% end %>
+
+          <div class="modal fade" id="editWebsiteModal" data-bs-backdrop="static" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title mt-4 text-primary" id="backDropModalTitle">עריכה</h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <%= render 'form', tag: "עדכן" %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="shareWebsiteModal" data-bs-backdrop="static" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title mt-4 text-primary" id="backDropModalTitle">שיתוף עם איש קשר</h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <%= render 'shared_websites/form', tag: "שתף" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="card-body p-0" data-controller="table">
+    <div class="card-body p-0 pt-3" data-controller="table">
       <div class="input-group d-flex mb-2 me-2">
         <% keyword = Keyword.new %>
         <%= simple_form_for [ @website, keyword ] do |f| %>

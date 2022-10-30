@@ -1,0 +1,23 @@
+.website-links {
+  gap: 0.3em;
+  & > .btn {
+    color: $primary;
+    opacity: 0.8;
+    background-color: $light-gray;
+    padding: 0.5em;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+      opacity: 1;
+    }
+
+    &.text-danger {
+      color: $danger;
+    }
+  }
+}
