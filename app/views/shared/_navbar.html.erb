@@ -1,42 +1,46 @@
 <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
-            id="layout-navbar">
-            <div class="layout-menu-toggle navbar-nav align-items-xl-center ms-3 me-xl-0 d-xl-none">
-              <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
-                <i class="bx bx-menu bx-sm"></i>
-              </a>
-            </div>
+  id="layout-navbar">
+  <div class="layout-menu-toggle navbar-nav align-items-xl-center ms-3 me-xl-0 d-xl-none">
+    <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+      <i class="bx bx-menu bx-sm"></i>
+    </a>
+  </div>
 
-            <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-              <ul class="navbar-nav flex-row align-items-center flex-grow-1 p-0 gap-3">
-                <!-- User -->
-                <li class="nav-item d-flex align-items-center">
-                  <div class="avatar avatar-offline">
-                    <img src="../sneat-1.0.0/assets/img/avatars/avatar-user-guest.png" alt class="w-px-40 h-auto rounded-circle" />
-                  </div>
-                </li>
-                <% if user_signed_in? %>
-                  <li class="nav-item">
-                    <%= current_user.email %>
-                  </li>
-                <% end %>
-                <div class="nav-item d-flex align-items-center me-auto">
-                  <% if user_signed_in? %>
-                    <li class="nav-item">
-                      <%= link_to "התנתקות", destroy_user_session_path, method: :delete,class: "nav-link" %>
-                    </li>
-                  <% else %>
-                    <li class="nav-item">
-                      <%= link_to "התחברות", new_user_session_path, class: "nav-link" %>
-                    </li>
-                    |
-                    <li class="nav-item">
-                      <%= link_to "הרשמה", new_user_registration_path, class: "nav-link" %>
-                    </li>
-                  <% end %>
-                </div>
+  <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+    <ul class="navbar-nav flex-row align-items-center flex-grow-1 p-0 gap-3">
+      <!-- User -->
+      <li class="nav-item d-flex align-items-center">
+        <% if user_signed_in? %>
+          <div class="avatar avatar-offline">
+            <img src="../sneat-1.0.0/assets/img/avatars/avatar-user-guest.png" alt class="w-px-40 h-auto rounded-circle" />
+          </div>
+        <% else %>
+          <%= render 'shared/logo' %>
+        <% end %>
+      </li>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= current_user.email %>
+        </li>
+      <% end %>
+      <div class="nav-item d-flex align-items-center me-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "התנתקות", destroy_user_session_path, method: :delete,class: "nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "התחברות", new_user_session_path, class: "nav-link" %>
+          </li>
+          |
+          <li class="nav-item">
+            <%= link_to "הרשמה", new_user_registration_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </div>
 
 
-                <!--/ User -->
-              </ul>
-            </div>
-          </nav>
+      <!--/ User -->
+    </ul>
+  </div>
+</nav>

@@ -1,79 +1,95 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
-          <div class="app-brand demo">
-            <%= link_to root_path, class: 'app-brand-link' do %>
+  <div class="app-brand demo">
+    <%= render 'shared/logo' %>
 
-              <span class="app-brand-logo demo">
-                <i class="fs-4 fa fa-thin fa-chart-line"></i>
-              </span>
-              <span class="app-brand-title demo h4 mb-0 menu-text fw-bolder me-1"><span class="">Seo</span>Tracker</span>
+    <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+      <i class="bx bx-chevron-left bx-sm align-middle"></i>
+    </a>
+  </div>
+
+  <div class="menu-inner-shadow"></div>
+
+  <ul class="menu-inner py-1">
+    <!-- Dashboard -->
+    <li class="menu-item active">
+      <%= link_to websites_path, class: 'menu-link' do %>
+          <i class="menu-icon tf-icons bx bx-home-circle"></i>
+          <div data-i18n="Analytics">לוח מנהל</div>
+      <% end %>
+    </li>
+
+    <!-- Layouts -->
+
+
+    <li class="menu-header small text-uppercase">
+      <span class="menu-header-text">מיקום אתרים</span>
+    </li>
+
+    <li class="menu-item">
+      <button class="btn menu-link menu-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="menu-icon tf-icons bx bx-dock-top m-0 ms-1"></i>
+        האתרים שלי
+      </button>
+      <ul class="menu-sub">
+        <li class="menu-item">
+          <% @websites.each do |website| %>
+            <%= link_to website, class: "menu-link" do %>
+              <div data-i18n="Account"><%= website.name %></div>
             <% end %>
+        <% end %>
+        </li>
+      </ul>
+    </li>
 
-            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
-              <i class="bx bx-chevron-left bx-sm align-middle"></i>
-            </a>
-          </div>
+    <li class="menu-item dropdown">
+      <button class="btn menu-link menu-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="menu-icon tf-icons bx bx-dock-top m-0 ms-1"></i>
+        משותפים איתי
+      </button>
 
-          <div class="menu-inner-shadow"></div>
+      <ul class="menu-sub">
+        <li class="menu-item">
+          <% @shared_websites.each do |website| %>
+            <%= link_to website, class: "menu-link" do %>
+              <div data-i18n="Account"><%= website.website.name %></div>
+            <% end %>
+        <% end %>
+        </li>
+      </ul>
+    </li>
 
-          <ul class="menu-inner py-1">
-            <!-- Dashboard -->
-            <li class="menu-item active">
-              <%= link_to websites_path, class: 'menu-link' do %>
-                  <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                  <div data-i18n="Analytics">לוח מנהל</div>
-              <% end %>
-            </li>
+    <li class="menu-item text-center mt-2">
+      <button
+        type="button"
+        class="btn btn-outline-primary btn-sm"
+        data-bs-toggle="modal"
+        data-bs-target="#newWebsite"
+      >
+        אתר חדש
+      </button>
+    </li>
 
-            <!-- Layouts -->
+    <li class="menu-header small text-uppercase">
+      <span class="menu-header-text">בדיקת לינקים</span>
+    </li>
 
-
-            <li class="menu-header small text-uppercase">
-              <span class="menu-header-text">מיקום אתרים</span>
-            </li>
-
-            <li class="menu-item">
-              <button class="btn menu-link menu-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="menu-icon tf-icons bx bx-dock-top m-0 ms-1"></i>
-                האתרים שלי
-              </button>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <% @websites.each do |website| %>
-                    <%= link_to website, class: "menu-link" do %>
-                      <div data-i18n="Account"><%= website.name %></div>
-                    <% end %>
-                <% end %>
-                </li>
-              </ul>
-            </li>
-
-            <li class="menu-item dropdown">
-              <button class="btn menu-link menu-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="menu-icon tf-icons bx bx-dock-top m-0 ms-1"></i>
-                משותפים איתי
-              </button>
-
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <% @shared_websites.each do |website| %>
-                    <%= link_to website, class: "menu-link" do %>
-                      <div data-i18n="Account"><%= website.website.name %></div>
-                    <% end %>
-                <% end %>
-                </li>
-              </ul>
-            </li>
-
-            <li class="menu-item text-center mt-2">
-              <button
-                type="button"
-                class="btn btn-outline-primary btn-sm"
-                data-bs-toggle="modal"
-                data-bs-target="#newWebsite"
-              >
-                אתר חדש
-              </button>
-            </li>
-
-          </ul>
-        </aside>
+  </ul>
+</aside>
+<div class="modal fade" id="newWebsite" data-bs-backdrop="static" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title mt-4 text-primary" id="backDropModalTitle">הוספת אתר חדש</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <%= render 'form', website: @website, tag: "צור" %>
+      </div>
+    </div>
+  </div>
+</div>

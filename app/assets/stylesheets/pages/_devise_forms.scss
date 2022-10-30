@@ -1,0 +1,14 @@
+.action-container .user_remember_me {
+  margin-bottom: 0 !important;
+}
+
+.form-check {
+  display: flex !important;
+  float: none;
+  gap: 2rem;
+
+  .form-check-input {
+    float: none !important;
+    flex-grow: 0;
+  }
+}
