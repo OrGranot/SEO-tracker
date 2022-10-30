@@ -18,10 +18,10 @@
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
             <li class="menu-item active">
-            <%= link_to websites_path, class: 'menu-link' do %>
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">לוח מנהל</div>
-            <% end %>
+              <%= link_to websites_path, class: 'menu-link' do %>
+                  <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                  <div data-i18n="Analytics">לוח מנהל</div>
+              <% end %>
             </li>
 
             <!-- Layouts -->
@@ -63,5 +63,17 @@
                 </li>
               </ul>
             </li>
+
+            <li class="menu-item text-center mt-2">
+              <button
+                type="button"
+                class="btn btn-outline-primary btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#newWebsite"
+              >
+                אתר חדש
+              </button>
+            </li>
+
           </ul>
         </aside>
