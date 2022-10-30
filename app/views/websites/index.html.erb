@@ -6,7 +6,7 @@
             <div class="card-body">
             <h2 class="card-title text-primary">האתרים שלי</h2>
 
-            <table class="text-center mb-3">
+            <table class="text-center w-100 mb-3">
               <thead>
                 <tr>
                   <th class="px-3"></th>
@@ -20,10 +20,7 @@
                   <tr>
                     <td class="website-options">
                       <%= link_to website, method: :delete, data: { confirm: 'אתה בטוח? כל המידע יאבד' }, class: "text-danger" do %>
-                        <i class="options-icon ">X</i>
-                      <% end %>
-                      <%= link_to new_shared_website_path(:website_id => website.id), class: "" do %>
-                        <i class="options-icon fa-regular fa-share-from-square"></i>
+                        <i class="text-danger fa-solid fa-trash"></i>
                       <% end %>
                     </td>
                     <td class="px-3"><%= link_to website.name, website, class: "" %></td>

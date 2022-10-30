@@ -6,6 +6,7 @@ class WebsitesController < ApplicationController
     @website = Website.new
     @websites = Website.where(user: current_user)
     @shared_websites = SharedWebsite.where(user: current_user)
+    @shared_website = SharedWebsite.new()
   end
 
   # GET /websites/1 or /websites/1.json
@@ -41,6 +42,8 @@ class WebsitesController < ApplicationController
     @website = Website.new(website_params)
     @website.url = @website.url.gsub(/(^https?\:\/\/|(\/|\?).*$)/, '')
     @website.user = current_user
+
+
     if @website.save
       redirect_to website_url(@website)
     else
