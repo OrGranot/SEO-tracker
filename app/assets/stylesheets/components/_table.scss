@@ -3,6 +3,7 @@
   gap: 3rem;
   text-align: center;
   width: fit-content;
+  background-color: white;
 
   thead {
     background-color: $gray;
@@ -15,6 +16,10 @@
     text-align: start;
 
   }
+  td {
+        text-align: center;
+  }
+
   .keyword {
     text-align: start;
     font-weight: bold;
@@ -38,15 +43,12 @@
       text-rendering: auto;
       -webkit-font-smoothing: antialiased;
 
-      // top: 25%;
     }
   }
   .rank.higher-rank {
     color: $green;
 
     &::after {
-      // top: 0;
-      // transform: rotate(calc(-1 * var(--angle))) translate(var(--spacing), var(--spacing));
       transform: translateY(25%);
       content: "\f0de";
     }
@@ -55,9 +57,6 @@
     color: $red;
 
     &::after {
-      // bottom: 0;
-      // transform: rotate(var(--angle)) translate(var(--spacing), calc(-1 * var(--spacing)));
-      // transform: translateY(-25%);
       content: "\f0dd";
     }
   }
@@ -65,23 +64,17 @@
   .blank {
     height: 100%;
   }
-}
 
-.table {
-  background-color: white;
+    .sticky-cell {
+      z-index: 1;
+      position: sticky;
+      right: 1.3rem;
 
-  td {
-    text-align: center;
-  }
-}
-.sticky-cell {
-  z-index: 1;
-  position: sticky;
-  right: 1.3rem;
+    }
 
-}
-.sticky-cell-options {
-  z-index: 1;
-  position: sticky;
-  right: -10px;
+    .sticky-cell-options {
+      z-index: 1;
+      position: sticky;
+      right: -10px;
+    }
 }
