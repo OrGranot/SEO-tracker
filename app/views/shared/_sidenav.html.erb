@@ -11,7 +11,7 @@
 
   <ul class="menu-inner py-1">
     <!-- Dashboard -->
-    <li class="menu-item active">
+    <li class="menu-item  <%= current_class?(websites_path) %> ">
       <%= link_to websites_path, class: 'menu-link' do %>
           <i class="menu-icon tf-icons bx bx-home-circle"></i>
           <div data-i18n="Analytics">לוח מנהל</div>
@@ -25,22 +25,21 @@
       <span class="menu-header-text">מיקום אתרים</span>
     </li>
 
-    <li class="menu-item">
+    <li class="menu-item dropdown">
       <button class="btn menu-link menu-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="menu-icon tf-icons bx bx-dock-top m-0 ms-1"></i>
         האתרים שלי
       </button>
       <ul class="menu-sub">
-        <li class="menu-item">
-          <% @websites.each do |website| %>
+        <% @websites.each do |website| %>
+          <li class="menu-item <%= current_class?(website_path(website.id)) %> ">
             <%= link_to website, class: "menu-link" do %>
               <div data-i18n="Account"><%= website.name %></div>
             <% end %>
+          </li>
         <% end %>
-        </li>
       </ul>
     </li>
-
     <li class="menu-item dropdown">
       <button class="btn menu-link menu-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="menu-icon tf-icons bx bx-dock-top m-0 ms-1"></i>
