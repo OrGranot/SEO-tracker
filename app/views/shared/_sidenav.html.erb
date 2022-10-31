@@ -47,13 +47,13 @@
       </button>
 
       <ul class="menu-sub">
-        <li class="menu-item">
-          <% @shared_websites.each do |website| %>
+        <% @shared_websites.each do |website| %>
+          <li class="menu-item <%= current_class?(shared_website_path(website.id)) %> ">
             <%= link_to website, class: "menu-link" do %>
               <div data-i18n="Account"><%= website.website.name %></div>
             <% end %>
+          </li>
         <% end %>
-        </li>
       </ul>
     </li>
 
