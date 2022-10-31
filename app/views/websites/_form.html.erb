@@ -1,11 +1,11 @@
-
-<%= simple_form_for(@website) do |f| %>
+<% website = @website.id.nil? ? @website : Website.new %>
+<%= simple_form_for(website) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="">
     <%= f.input :name, :label => "שם האתר" %>
-    <% if @website.url == nil %>
+    <% if website.url == nil %>
       <%= f.input :url, :label => "כתובת האתר", class: 'form-control'  %>
     <% end %>
   </div>
