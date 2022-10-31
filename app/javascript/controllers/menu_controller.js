@@ -5,9 +5,7 @@ export default class extends Controller {
 
   connect() {
     const activeElem = document.querySelector('.menu-item.active')
-    const dropDownElem = activeElem.closest('.menu-item.dropdown')
-    if (!dropDownElem) return
+    activeElem?.closest('.menu-item.dropdown')?.classList.add('open')
 
-    dropDownElem.classList.add('open')
   }
 }
