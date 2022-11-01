@@ -1,4 +1,9 @@
-<% website = @website.id.nil? ? @website : Website.new %>
+<% if new == true %>
+  <% website = Website.new %>
+<% else %>
+  <% website = !@website.id.nil? ? @website : Website.new %>
+<% end %>
+
 <%= simple_form_for(website) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>

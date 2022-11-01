@@ -62,7 +62,7 @@
         type="button"
         class="btn btn-outline-primary btn-sm"
         data-bs-toggle="modal"
-        data-bs-target="#newWebsite"
+        data-bs-target="#newWebsiteSideBar"
       >
         אתר חדש
       </button>
@@ -87,7 +87,25 @@
         ></button>
       </div>
       <div class="modal-body">
-        <%= render 'form', tag: "צור" %>
+        <%= render 'form', tag: "צור", new: false %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="newWebsiteSideBar" data-bs-backdrop="static" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title mt-4 text-primary" id="backDropModalTitle">הוספת אתר חדש</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <%= render 'websites/form', tag: "צור", new: true %>
       </div>
     </div>
   </div>
