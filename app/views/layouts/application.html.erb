@@ -70,7 +70,7 @@
             <div class="container-xxl flex-grow-1 container-p-y">
               <%= yield %>
               <!-- / Content -->
-              <div class="content-backdrop fade"></div>
+              <div class="conteznt-backdrop fade"></div>
             </div>
             <%= render 'shared/footer' %>
           <!-- Content wrapper -->
@@ -84,7 +84,7 @@
     <% else %>
       <div class="container d-flex flex-column align-items-center" style="height: 100vh;">
         <%= render 'shared/navbar', logo: true %>
-        <%= render 'devise/sessions/new' %>
+          <%= yield %>
         <%= render 'shared/footer'%>
       </div>
     <% end %>
