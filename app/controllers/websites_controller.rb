@@ -7,7 +7,7 @@ class WebsitesController < ApplicationController
     @website = Website.new
     @websites = Website.where(user: current_user)
     @shared_websites = SharedWebsite.where(user: current_user)
-    @shared_website = SharedWebsite.new()
+    @shared_website = SharedWebsite.new
   end
 
   # GET /websites/1 or /websites/1.json
@@ -15,18 +15,10 @@ class WebsitesController < ApplicationController
   def show
     @keywords = @website.keywords
     @dates = @keywords.map do |keyword|
-      keyword.searches.map {|search| search.date}
+      keyword.searches.map(&:date)
     end
     @dates = @dates.flatten.uniq.sort
-    @arr = []
-    @keywords.each do |keyword|
-      hased_keyword = Hash.new(keyword)
-      @dates.each do |date|
-        hased_keyword[date] = keyword.searches.where(date: date)
-
-        @arr << hased_keyword
-      end
-    end
+    hash_keywords
     @shared_website = SharedWebsite.new
   end
 
@@ -67,6 +59,18 @@ class WebsitesController < ApplicationController
   end
 
   private
+
+  def hash_keywords
+    @arr = []
+    @keywords.each do |keyword|
+      hased_keyword = Hash.new(keyword)
+      @dates.each do |date|
+        hased_keyword[date] = keyword.searches.where(date: date)
+        @arr << hased_keyword
+      end
+    end
+    @arr
+  end
 
   def set_website
     @website = Website.find_by_id(params[:id])
