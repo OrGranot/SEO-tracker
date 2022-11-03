@@ -40,11 +40,12 @@ class SearchController < ApplicationController
   private
 
   def find_rank(keyword)
+
     results = api_call(keyword)
     return false if results["request_info"]["success"] == false
-    raise
+
     results["organic_results"].each do |result|
-      return result["position"] if result["domain"] == (keyword.website.url.to_lowercase)
+      return result["position"] if result["domain"] == (keyword.website.url.downcase)
     end
     return -1
   end
