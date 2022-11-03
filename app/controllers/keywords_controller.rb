@@ -1,6 +1,7 @@
 class KeywordsController < ApplicationController
   def create
     @keyword = Keyword.new(keyword_params)
+    @keyword.key_string.strip!
     @website = Website.find(params[:website_id])
     @keyword.website = @website
     @keyword.save

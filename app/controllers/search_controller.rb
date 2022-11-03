@@ -40,7 +40,6 @@ class SearchController < ApplicationController
   private
 
   def find_rank(keyword)
-
     results = api_call(keyword)
     return false if results["request_info"]["success"] == false
 
