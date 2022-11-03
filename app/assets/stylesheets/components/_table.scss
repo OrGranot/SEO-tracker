@@ -69,7 +69,8 @@
     .sticky-cell {
       z-index: 1;
       position: sticky;
-      right: 1.3rem;
+      padding-inline-start: 0.75em ;
+      right: 2.4rem;
       white-space: nowrap;
       padding-left: 2em;
     }
@@ -79,6 +80,21 @@
       position: sticky;
       right: -10px;
       width: 1rem;
+
+      .keyword-option {
+        display: flex;
+        align-items: center;
+        font-size: 0.8rem;
+        opacity: 0.8;
+
+        &:hover {
+            opacity: 1;
+        }
+
+        i {
+          color: $primary;
+        }
+      }
     }
 
 
@@ -86,7 +102,7 @@
   .website-options {
     display: flex;
     gap: 0.5em;
-    padding-left: 0.5em;
+    padding-left: 0.3em;
     justify-content: center;
     font-size: 0.85em;
 

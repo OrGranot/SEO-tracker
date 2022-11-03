@@ -79,7 +79,7 @@
   <div class="" data-controller="table">
     <div class="card-body p-0 pt-3" >
       <% if role == 'owner' %>
-        <div class="input-group d-flex mb-2 me-2">
+        <div class=" d-flex mb-2 me-2">
           <% keyword = Keyword.new %>
           <%= simple_form_for [ website, keyword ] do |f| %>
           <div class="d-flex gap-2 align-items-center">
@@ -99,17 +99,24 @@
                 <th class="bg-white sticky-cell-options" scope="col"></th>
                 <th class="sticky-cell" scope="col">מילות חיפוש</th>
                 <% @dates.each do |date| %>
-                <th scope="col" class="date"><%= date.strftime('%d/%m/%Y') %></th>
-              <% end %>
+                  <th scope="col" class="date"><%= date.strftime('%d/%m/%Y') %></th>
+                <% end %>
               </tr>
             </thead>
             <tbody>
               <% @keywords.each do |keyword| %>
               <% last_search = keyword.searches.first %>
               <tr>
-                <td class="sticky-cell-options"><%= link_to website_keyword_path(website, keyword), method: :delete, data: { confirm: 'אתה בטוח? כל המידע יאבד' }, class: "text-danger" do %>
-                  <i class="btn p-0 text-danger">X</i>
-                <% end %></td>
+                <td class="sticky-cell-options">
+                  <div class="d-flex gap-1">
+                    <%= link_to website_keyword_search_create_path(website,keyword), class: "keyword-option" do %>
+                      <i class="text-primary fa-solid fa-arrows-rotate"></i>
+                    <% end %>
+                    <%= link_to website_keyword_path(website, keyword), method: :delete, data: { confirm: 'אתה בטוח? כל המידע יאבד' }, class: "text-danger" do %>
+                      <i class="btn p-0 text-danger">X</i>
+                    <% end %>
+                  </div>
+                </td>
                 <td class="keyword sticky-cell" scope="row"><%= keyword.key_string %></td>
                 <% @dates.each do |date| %>
                   <% search = keyword.searches.select{|search| search[:date] == date}[0] %>
@@ -131,7 +138,7 @@
       </div>
       <div class="links d-flex justify-content-start align-items-center gap-3 p-3">
         <% if @keywords.length != 0 && role == 'owner'%>
-          <%= link_to "בדוק מיקומים", website_search_add_path(website), class: "btn btn-primary " %>
+          <%= link_to "בדוק מיקומים", website_search_add_ranks_path(website), class: "btn btn-primary " %>
         <% end %>
         <%= link_to "חזור", websites_path, class: "btn btn-outline-primary " %>
       </div>
