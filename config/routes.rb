@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :shared_websites
-  resources :websites do
+  resources :websites, exept: %i[new edit] do
     get 'search/add_ranks'
     resources :keywords do
       get 'search/create'
@@ -8,5 +8,4 @@ Rails.application.routes.draw do
   end
   devise_for :users
   root to: 'websites#index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

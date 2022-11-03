@@ -30,20 +30,11 @@ class WebsitesController < ApplicationController
     @shared_website = SharedWebsite.new
   end
 
-  # GET /websites/new
-  def new
-  end
-
-  # GET /websites/1/edit
-  def edit
-  end
-
   # POST /websites or /websites.json
   def create
     @website = Website.new(website_params)
-    @website.url = @website.url.gsub(/(^https?\:\/\/|(\/|\?).*$)/, '')
+    @website.url = @website.url.gsub(%r{(^https?://|(/|\?).*$)}, '').downcase
     @website.user = current_user
-
 
     if @website.save
       redirect_to website_url(@website)

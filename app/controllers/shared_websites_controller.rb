@@ -1,11 +1,11 @@
 class SharedWebsitesController < ApplicationController
-  before_action :set_shared_website, only: %i[ show edit update destroy ]
+  before_action :set_shared_website, only: %i[show edit update destroy]
   before_action :set_websites
 
   def show
     @keywords = @shared_website.website.keywords
     @dates = @keywords.map do |keyword|
-      keyword.searches.map {|search| search.date}
+      keyword.searches.map {|search| search.date }
     end
     @dates = @dates.flatten.uniq.sort
     @arr = []
@@ -26,14 +26,8 @@ class SharedWebsitesController < ApplicationController
 
   def create
     if validate_website(params[:shared_website][:website_id])
-      user = User.find_by(email: params[:shared_website][:user].downcase)
-      website = Website.find(params[:shared_website][:website_id].to_i)
-      role = 'viewer' if params[:shared_website][:role] == 'צפיה בלבד'
-      role = 'editor' if params[:shared_website][:role] == 'עריכה'
-      @shared_website = SharedWebsite.new
-      @shared_website.user = user
-      @shared_website.website = website
-      @shared_website.role = role
+      @shared_website = SharedWebsite.new(shared_website_params)
+      @shared_website.user = User.find_by(email: params[:shared_website][:user].downcase)
 
       respond_to do |format|
         if @shared_website.save
