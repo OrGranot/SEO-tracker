@@ -20,7 +20,7 @@ class SearchController < ApplicationController
     redirect_to @website
   end
 
-  def create
+  def create()
     @keyword = Keyword.find(params[:keyword_id])
     if !@keyword.searches.last.nil? && @keyword.searches.last.date == Date.today && @keyword.searches.last.date != []
       redirect_to @website and return
