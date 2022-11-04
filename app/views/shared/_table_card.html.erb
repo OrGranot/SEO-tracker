@@ -98,8 +98,8 @@
       </div>
       <div class="mt-4">
         <%= line_chart @keywords.map { |keyword|
-            {name: keyword.key_string, data: keyword.searches.group_by_month(:created_at).maximum(:rank)}
-        } %>
+              {name: keyword.key_string, data: keyword.searches.group_by_day(:created_at).maximum(:rank).select { |k,v| v != nil } }
+            }  %>
 
       </div>
       <div class="links d-flex justify-content-start align-items-center gap-3 p-3">
