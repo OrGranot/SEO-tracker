@@ -19,7 +19,7 @@ class WebsitesController < ApplicationController
     @dates = @dates.flatten.uniq.sort
     hash_keywords
     @shared_website = SharedWebsite.new
-    @website.keywords.joins(:searches).group(:id).last.searches.chart_json
+    # @website.keywords.joins(:searches).group(:id).last.searches.chart_json
 
   end
 
