@@ -1,5 +1,5 @@
 class WebsitesController < ApplicationController
-  before_action :set_website, only: %i[ show edit update destroy ]
+  before_action :set_website, only: %i[ show edit update destroy]
   before_action :set_websites
 
   # GET /websites or /websites.json
@@ -13,13 +13,14 @@ class WebsitesController < ApplicationController
   # GET /websites/1 or /websites/1.json
 
   def show
-    @keywords = @website.keywords
-    @dates = @keywords.map do |keyword|
-      keyword.searches.map(&:date)
-    end
+    # @keywords = @website.keywords
+    set_keywords
+    @dates = @keywords.map { |keyword| keyword.searches.map(&:date) }
     @dates = @dates.flatten.uniq.sort
     hash_keywords
     @shared_website = SharedWebsite.new
+    @website.keywords.joins(:searches).group(:id).last.searches.chart_json
+
   end
 
   # POST /websites or /websites.json
@@ -56,6 +57,10 @@ class WebsitesController < ApplicationController
       format.html { redirect_to websites_url, notice: "Website was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def set_keywords
+    @keywords = @website.keywords.joins(:searches).group(:id)
   end
 
   private

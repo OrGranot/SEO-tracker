@@ -84,7 +84,7 @@
           <%= simple_form_for [ website, keyword ] do |f| %>
           <div class="d-flex gap-2 align-items-center">
               <%= f.input_field :key_string, :label => false  , placeholder: "הזן מילות חיפוש", class: "form-control", "aria-label": "הזן מילות חיפוש"  %>
-              <%= button_tag(type: 'submit', class: "btn btn-outline-primary", id: "button-addon2") do %>
+              <%= button_tag(type: 'submit', class: "btn btn-outline-primary") do %>
                 הוסף
               <% end %>
           </div>
@@ -95,6 +95,12 @@
         <% if @keywords.length != 0 %>
           <%= render 'shared/table', website: website %>
         <% end %>
+      </div>
+      <div class="mt-4">
+        <%= line_chart @keywords.map { |keyword|
+            {name: keyword.key_string, data: keyword.searches.group_by_month(:created_at).maximum(:rank)}
+        } %>
+
       </div>
       <div class="links d-flex justify-content-start align-items-center gap-3 p-3">
         <% if @keywords.length != 0 && role == 'owner'%>

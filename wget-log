@@ -1,0 +1,53 @@
+--2022-11-03 17:15:03--  http://rubygems.org/
+Resolving rubygems.org (rubygems.org)... 2a04:4e42:200::483, 2a04:4e42:600::483, 2a04:4e42:400::483, ...
+Connecting to rubygems.org (rubygems.org)|2a04:4e42:200::483|:80... failed: Operation timed out.
+Connecting to rubygems.org (rubygems.org)|2a04:4e42:600::483|:80... failed: Operation timed out.
+Connecting to rubygems.org (rubygems.org)|2a04:4e42:400::483|:80... failed: Operation timed out.
+Connecting to rubygems.org (rubygems.org)|2a04:4e42::483|:80... failed: Operation timed out.
+Retrying.
+
+--2022-11-03 17:22:18--  (try: 2)  http://rubygems.org/
+Connecting to rubygems.org (rubygems.org)|2a04:4e42:200::483|:80... failed: Operation timed out.
+Connecting to rubygems.org (rubygems.org)|2a04:4e42:600::483|:80... failed: Operation timed out.
+Connecting to rubygems.org (rubygems.org)|2a04:4e42:400::483|:80... failed: Operation timed out.
+Connecting to rubygems.org (rubygems.org)|2a04:4e42::483|:80... failed: Operation timed out.
+Retrying.
+
+--2022-11-03 17:27:20--  (try: 3)  http://rubygems.org/
+Connecting to rubygems.org (rubygems.org)|2a04:4e42:200::483|:80... failed: Operation timed out.
+Connecting to rubygems.org (rubygems.org)|2a04:4e42:600::483|:80... failed: Operation timed out.
+Connecting to rubygems.org (rubygems.org)|2a04:4e42:400::483|:80... failed: Operation timed out.
+Connecting to rubygems.org (rubygems.org)|2a04:4e42::483|:80... failed: Operation timed out.
+Retrying.
+
+--2022-11-03 17:32:23--  (try: 4)  http://rubygems.org/
+Connecting to rubygems.org (rubygems.org)|2a04:4e42:200::483|:80... failed: Operation timed out.
+Connecting to rubygems.org (rubygems.org)|2a04:4e42:600::483|:80... failed: Operation timed out.
+Connecting to rubygems.org (rubygems.org)|2a04:4e42:400::483|:80... failed: Operation timed out.
+Connecting to rubygems.org (rubygems.org)|2a04:4e42::483|:80... failed: Operation timed out.
+Retrying.
+
+--2022-11-03 17:37:27--  (try: 5)  http://rubygems.org/
+Connecting to rubygems.org (rubygems.org)|2a04:4e42:200::483|:80... failed: Operation timed out.
+Connecting to rubygems.org (rubygems.org)|2a04:4e42:600::483|:80... failed: Operation timed out.
+Connecting to rubygems.org (rubygems.org)|2a04:4e42:400::483|:80... failed: Operation timed out.
+Connecting to rubygems.org (rubygems.org)|2a04:4e42::483|:80... failed: Operation timed out.
+Retrying.
+
+--2022-11-03 17:42:32--  (try: 6)  http://rubygems.org/
+Connecting to rubygems.org (rubygems.org)|2a04:4e42:200::483|:80... failed: Operation timed out.
+Connecting to rubygems.org (rubygems.org)|2a04:4e42:600::483|:80... failed: Operation timed out.
+Connecting to rubygems.org (rubygems.org)|2a04:4e42:400::483|:80... failed: Operation timed out.
+Connecting to rubygems.org (rubygems.org)|2a04:4e42::483|:80... failed: Operation timed out.
+Retrying.
+
+--2022-11-03 17:47:38--  (try: 7)  http://rubygems.org/
+Connecting to rubygems.org (rubygems.org)|2a04:4e42:200::483|:80... failed: Operation timed out.
+Connecting to rubygems.org (rubygems.org)|2a04:4e42:600::483|:80... failed: Operation timed out.
+Connecting to rubygems.org (rubygems.org)|2a04:4e42:400::483|:80... failed: Operation timed out.
+Connecting to rubygems.org (rubygems.org)|2a04:4e42::483|:80... failed: Operation timed out.
+Retrying.
+
+--2022-11-03 17:52:45--  (try: 8)  http://rubygems.org/
+Connecting to rubygems.org (rubygems.org)|2a04:4e42:200::483|:80... failed: Operation timed out.
+Connecting to rubygems.org (rubygems.org)|2a04:4e42:600::483|:80... 
