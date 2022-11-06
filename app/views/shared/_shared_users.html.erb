@@ -1,6 +1,14 @@
 <div class="d-flex ">
   <% users = website.shared_users.map { |user| user.email.partition('@').first } %>
-  <span class="text-muted text-small h6 m-0">
-    <%= users.first(3).join(', ') %> משותפים
+  <% if users %>
+    <span class="text-muted text-small h6 m-0">
+    <% if users.length == 1 %>
+      <%= users.first %> משותף
+    <% elsif users.length > 3 %>
+      <%= users.first(3).join(', ') %> ועוד <%= users.length - 3 %> משותפים
+    <% else %>
+      <%= users.first(users.length - 1).join(', ') %> ו<%= users.last %> משותפים
+    <% end %>
+  <% end %>
   </span>
 </div>
