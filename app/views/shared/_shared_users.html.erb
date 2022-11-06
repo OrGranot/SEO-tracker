@@ -1,0 +1,6 @@
+<div class="d-flex ">
+  <% users = website.shared_users.map { |user| user.email.partition('@').first } %>
+  <span class="text-muted text-small h6 m-0">
+    <%= users.first(3).join(', ') %> משותפים
+  </span>
+</div>

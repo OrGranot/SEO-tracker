@@ -53,8 +53,9 @@
           <div class="modal fade" id="shareWebsiteModal" data-bs-backdrop="static" tabindex="-1">
             <div class="modal-dialog">
               <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title mt-4 text-primary" id="backDropModalTitle">שיתוף עם איש קשר</h5>
+                <div class="modal-header d-flex align-items-center justify-content-start gap-3 mt-3">
+                  <h5 class="modal-title text-primary" id="backDropModalTitle">שיתוף עם איש קשר</h5>
+                  <%= render 'shared/shared_users', website: website %>
                   <button
                     type="button"
                     class="btn-close"
@@ -79,16 +80,30 @@
   <div class="" data-controller="table">
     <div class="card-body p-0 pt-3" >
       <% if role == 'owner' %>
-        <div class=" d-flex mb-2 me-2">
+        <div class=" d-flex mb-2 me-2 gap-3">
           <% keyword = Keyword.new %>
-          <%= simple_form_for [ website, keyword ] do |f| %>
-          <div class="d-flex gap-2 align-items-center">
-              <%= f.input_field :key_string, :label => false  , placeholder: "הזן מילות חיפוש", class: "form-control", "aria-label": "הזן מילות חיפוש"  %>
-              <%= button_tag(type: 'submit', class: "btn btn-outline-primary") do %>
-                הוסף
-              <% end %>
-          </div>
+            <%= simple_form_for [ website, keyword ] do |f| %>
+            <div class="d-flex gap-2 align-items-center">
+                <%= f.input_field :key_string, :label => false  , placeholder: "הוסף מילות חיפוש", class: "form-control", "aria-label": "הוסף מילות חיפוש"  %>
+                <%= button_tag(type: 'submit', class: "btn btn-outline-primary") do %>
+                  הוסף
+                <% end %>
+            </div>
           <% end %>
+
+          <%= simple_form_for [ website ], local: true, method: :get do |f| %>
+            <div class="d-flex gap-2 align-items-center">
+            <%= f.fields_for :search do |s| %>
+                <% value = params[:results] %>
+                <%= s.text_field :key_string, :label => false  , name: "results", placeholder: "חפש", class: "form-control", "aria-label": "הו מילות חיפוש",
+                value: value  %>
+            <% end %>
+                <%= button_tag(type: 'submit', class: "btn btn-outline-primary") do %>
+                  חפש
+                <% end %>
+            </div>
+          <% end %>
+
         </div>
       <% end %>
       <div class="mb-2" style="overflow-x:auto;" data-table-target="scollable">
@@ -99,7 +114,9 @@
       <div class="mt-4">
         <%= line_chart @keywords.map { |keyword|
               {name: keyword.key_string, data: keyword.searches.group_by_day(:created_at).maximum(:rank).select { |k,v| v != nil } }
-            }  %>
+            }
+
+            %>
 
       </div>
       <div class="links d-flex justify-content-start align-items-center gap-3 p-3">

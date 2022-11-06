@@ -9,11 +9,15 @@
 puts "Cleaning database..."
 Website.destroy_all
 
-user = User.first
+user1 = User.first
+user2 = User.last
 
 puts "Creating Websites..."
-web1 = { name: "bitesew", url: "www.website.com", user_id: user.id}
-web2 =  { name: "East", url: "www.website-also.com", user_id: user.id}
+web1 = { name: "אילת", url: "www.h-eilat.co.il", user_id: user1.id}
+web2 =  { name: "מרוקו", url: "www.mrco.co.il", user_id: user1.id}
+web3 =  { name: "מרוקו", url: "www.mrco.co.il", user_id: user1.id}
+web4 =  { name: "ברלין", url: "www.berlinil.co.il", user_id: user.id}
+web5 =  { name: "ynet", url: "www.ynet.co.il", user_id: user.id}
 
 [ web1, web2 ].each do |attributes|
   website = Website.create!(attributes)

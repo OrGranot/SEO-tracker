@@ -13,14 +13,8 @@ class WebsitesController < ApplicationController
   # GET /websites/1 or /websites/1.json
 
   def show
-    # @keywords = @website.keywords
     set_keywords
-    @dates = @keywords.map { |keyword| keyword.searches.map(&:date) }
-    @dates = @dates.flatten.uniq.sort
-    hash_keywords
     @shared_website = SharedWebsite.new
-    # @website.keywords.joins(:searches).group(:id).last.searches.chart_json
-
   end
 
   # POST /websites or /websites.json
@@ -59,22 +53,14 @@ class WebsitesController < ApplicationController
     end
   end
 
-  def set_keywords
-    @keywords = @website.keywords.joins(:searches).group(:id)
-  end
+
 
   private
 
-  def hash_keywords
-    @arr = []
-    @keywords.each do |keyword|
-      hased_keyword = Hash.new(keyword)
-      @dates.each do |date|
-        hased_keyword[date] = keyword.searches.where(date: date)
-        @arr << hased_keyword
-      end
-    end
-    @arr
+  def set_keywords
+    @keywords = @website.keywords.joins(:searches).group(:id)
+    @searches = @keywords.map { |keyword| keyword.searches }
+
   end
 
   def set_website

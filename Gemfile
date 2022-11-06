@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '~> 6.1.4', '>= 6.1.4.6'
+gem "rails", "~> 7.0.0"
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
@@ -27,7 +27,6 @@ gem 'redis', '~> 4.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-
 gem 'devise'
 gem 'pundit'
 gem 'pry', '~> 0.13.1'
@@ -35,7 +34,7 @@ gem 'simple_form', github: 'heartcombo/simple_form'
 gem 'jquery-rails'
 
 gem 'autoprefixer-rails', '10.2.5'
-gem 'font-awesome-sass'
+gem 'font-awesome-sass', "~> 6.2.0"
 
 
 group :development, :test do  gem 'pry-byebug'
@@ -71,3 +70,12 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "chartkick", "~> 4.2"
 
 gem "groupdate", "~> 6.1"
+gem "sprockets-rails"
+
+gem "cssbundling-rails", "~> 1.1"
+
+gem "jsbundling-rails", "~> 1.0"
+
+gem "bootstrap", "~> 5.2"
+
+gem "importmap-rails", "~> 1.1"
