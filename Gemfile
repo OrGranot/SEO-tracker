@@ -36,6 +36,7 @@ gem 'jquery-rails'
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
+gem 'font_awesome5_rails'
 
 
 group :development, :test do  gem 'pry-byebug'
