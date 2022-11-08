@@ -129,9 +129,6 @@ GEM
       turbo-rails
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
-    importmap-rails (1.1.5)
-      actionpack (>= 6.0.0)
-      railties (>= 6.0.0)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -297,7 +294,6 @@ DEPENDENCIES
   font-awesome-sass (~> 6.2.0)
   groupdate (~> 6.1)
   hotwire-rails
-  importmap-rails (~> 1.1)
   jbuilder (~> 2.7)
   jquery-rails
   jsbundling-rails (~> 1.0)

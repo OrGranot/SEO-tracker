@@ -16,7 +16,7 @@ Turbolinks.start();
 ActiveStorage.start();
 
 import "./controllers";
-import { application } from "./application";
+// import { application } from "./application";
 import "bootstrap";
 // require("@fortawesome/fontawesome-free");
 import "@hotwired/turbo-rails"
