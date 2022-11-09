@@ -14,7 +14,7 @@ class WebsitesController < ApplicationController
 
   def show
     # @keywords = @website.keywords
-    set_keywords
+    @keywords = @website.keywords
     @dates = @keywords.map { |keyword| keyword.searches.map(&:date) }
     @dates = @dates.flatten.uniq.sort
     hash_keywords
@@ -57,10 +57,6 @@ class WebsitesController < ApplicationController
       format.html { redirect_to websites_url, notice: "Website was successfully destroyed." }
       format.json { head :no_content }
     end
-  end
-
-  def set_keywords
-    @keywords = @website.keywords
   end
 
   private

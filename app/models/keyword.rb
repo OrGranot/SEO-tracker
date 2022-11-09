@@ -2,7 +2,7 @@ class Keyword < ApplicationRecord
   belongs_to :website
   has_many :searches, dependent: :destroy
   validates :key_string, presence: true
-  validates :key_string, uniqueness: true
+  validates :key_string, uniqueness: { scope: :website }
 
 
   def grouped_searches
