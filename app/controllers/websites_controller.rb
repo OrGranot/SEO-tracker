@@ -17,7 +17,6 @@ class WebsitesController < ApplicationController
     @keywords = @website.keywords
     @dates = @keywords.map { |keyword| keyword.searches.map(&:date) }
     @dates = @dates.flatten.uniq.sort
-    hash_keywords
     @shared_website = SharedWebsite.new
     # @website.keywords.joins(:searches).group(:id).last.searches.chart_json
 
@@ -60,18 +59,6 @@ class WebsitesController < ApplicationController
   end
 
   private
-
-  def hash_keywords
-    @arr = []
-    @keywords.each do |keyword|
-      hased_keyword = Hash.new(keyword)
-      @dates.each do |date|
-        hased_keyword[date] = keyword.searches.where(date: date)
-        @arr << hased_keyword
-      end
-    end
-    @arr
-  end
 
   def set_website
     @website = Website.find_by_id(params[:id])
