@@ -6,4 +6,7 @@ class User < ApplicationRecord
   has_many :websites
   has_many :shared_websites
 
+  def getUserName
+    self.email
+  end
 end

@@ -1,0 +1,246 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap");
+.alert {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  z-index: 1000;
+}
+
+.avatar {
+  width: 40px;
+  border-radius: 50%;
+}
+
+.avatar-large {
+  width: 56px;
+  border-radius: 50%;
+}
+
+.avatar-bordered {
+  width: 40px;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  border: white 1px solid;
+}
+
+.avatar-square {
+  width: 40px;
+  border-radius: 0px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  border: white 1px solid;
+}
+
+.table {
+  gap: 3rem;
+  text-align: center;
+  width: fit-content;
+  background-color: white;
+}
+.table thead {
+  background-color: #0e0000;
+  color: #f4f4f4;
+  font-weight: 400;
+  font-size: 0.875rem;
+}
+.table th {
+  text-align: start;
+}
+.table td {
+  text-align: center;
+}
+.table .keyword {
+  text-align: start;
+  font-weight: bold;
+}
+.table .date {
+  text-align: center;
+}
+.table .rank {
+  position: relative;
+}
+.table .rank::after {
+  opacity: 0.7;
+  font-size: 0.8rem;
+  position: absolute;
+  padding-inline-start: 0.1em;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+.table .rank.higher-rank {
+  color: #159e61;
+}
+.table .rank.higher-rank::after {
+  transform: translateY(25%);
+  content: "\f0de";
+}
+.table .rank.lower-rank {
+  color: #fd1015;
+}
+.table .rank.lower-rank::after {
+  content: "\f0dd";
+}
+.table .blank {
+  height: 100%;
+}
+.table .sticky-cell {
+  z-index: 1;
+  position: sticky;
+  padding-inline-start: 0.75em;
+  right: 2.4rem;
+  white-space: nowrap;
+  padding-left: 2em;
+}
+.table .sticky-cell-options {
+  z-index: 1;
+  position: sticky;
+  right: -10px;
+  width: 1rem;
+}
+.table .sticky-cell-options .keyword-option {
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+.table .sticky-cell-options .keyword-option:hover {
+  opacity: 1;
+}
+.table .sticky-cell-options .keyword-option i {
+  color: #696cff;
+}
+
+.website-options {
+  display: flex;
+  gap: 0.5em;
+  padding-left: 0.3em;
+  justify-content: center;
+  font-size: 0.85em;
+}
+.website-options .options-icon {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  flex-grow: 1;
+}
+.website-options .options-icon:hover {
+  opacity: 1;
+}
+
+.app-brand-link {
+  opacity: 0.9;
+}
+.app-brand-link:hover {
+  opacity: 0.8;
+}
+
+.app-brand-logo i {
+  color: #696cff !important;
+}
+
+.app-brand-title {
+  position: relative;
+}
+.app-brand-title::after {
+  content: "";
+  position: absolute;
+  width: 105%;
+  height: 2px;
+  background-image: linear-gradient(90deg, transparent, #696cff 15%, transparent 85%);
+  border-radius: 100%;
+  bottom: 0em;
+  left: -0.5rem;
+  transform-origin: left;
+  rotate: -2deg;
+  z-index: -1;
+}
+.app-brand-title span {
+  color: #696cff;
+}
+
+.menu-item .sub-menu .menu-item.active .account {
+  color: #696cff;
+}
+
+.alert {
+  right: 50%;
+  translate: 50% 0;
+  width: 50%;
+  background-color: rgba(105, 108, 255, 0.1) !important;
+  border: 1px solid rgba(105, 108, 255, 0.7) !important;
+  color: #696cff !important;
+  padding-right: 0 !important;
+}
+.alert .btn {
+  padding-right: 1em !important;
+  padding-left: 0.5em !important;
+}
+
+.website-links {
+  gap: 0.3em;
+}
+.website-links > .btn {
+  color: #696cff;
+  opacity: 0.8;
+  background-color: #f4f4f4;
+  padding: 0.5em;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.website-links > .btn:focus-within {
+  outline: 1px solid #696cff;
+}
+.website-links > .btn:hover {
+  opacity: 1;
+}
+.website-links > .btn.text-danger {
+  color: #fd1015;
+}
+
+.action-container .user_remember_me {
+  margin-bottom: 0 !important;
+}
+
+.form-check {
+  display: flex !important;
+  float: none;
+  gap: 2rem;
+}
+.form-check .form-check-input {
+  float: none !important;
+  flex-grow: 0;
+}
+
+.layout-menu {
+  right: 0 !important;
+}
+@media (max-width: 1200px) {
+  .layout-menu {
+    transform: translate3d(100%, 0, 0) !important;
+  }
+}
+
+.layout-page {
+  padding-left: 0 !important;
+}
+@media (min-width: 1200px) {
+  .layout-page {
+    padding-right: 16.25em !important;
+  }
+}
+.layout-page .layout-menu {
+  left: 100% !important;
+}
+@media (max-width: 1200px) {
+  .layout-page .layout-menu {
+    transform: translate3d(100%, 0, 0) !important;
+  }
+}

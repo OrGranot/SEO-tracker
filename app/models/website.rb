@@ -10,4 +10,8 @@ class Website < ApplicationRecord
   def group_web_data
     self.keywords.map { |keyword| keyword.searches }.flatten.group_by { |s| s.date }
   end
+
+  def method_name
+
+  end
 end
