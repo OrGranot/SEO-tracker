@@ -54,7 +54,10 @@
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title mt-4 text-primary" id="backDropModalTitle">שיתוף עם איש קשר</h5>
+                  <div class="d-flex align-items-center gap-3 mt-3">
+                    <h5 class="modal-title text-primary" id="backDropModalTitle">שיתוף עם איש קשר</h5>
+                    <span class="text-muted h6 m-0"><%= website.users_as_string %></span>
+                  </div>
                   <button
                     type="button"
                     class="btn-close"

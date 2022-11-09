@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :websites
   has_many :shared_websites
 
-  def getUserName
-    self.email
+  def get_user_name
+    self.email.split('@').first
   end
 end
