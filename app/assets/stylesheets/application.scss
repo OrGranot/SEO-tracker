@@ -5,7 +5,7 @@
 @import "config/bootstrap_variables";
 
 // External libraries
-@import "bootstrap/scss/bootstrap";
+// @import "bootstrap/scss/bootstrap";
 // @import "font-awesome-sprockets";
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display:700,900");
 @import "font-awesome";
@@ -15,12 +15,12 @@
 @import "pages/index";
 @import "utilities/index";
 
-$fa-font-path: "@fortawesome/fontawesome-free/webfonts";
-@import "@fortawesome/fontawesome-free/scss/fontawesome";
-@import "@fortawesome/fontawesome-free/scss/brands";
-@import "@fortawesome/fontawesome-free/scss/solid";
-@import "@fortawesome/fontawesome-free/scss/regular";
-@import "@fortawesome/fontawesome-free/scss/v4-shims";
+// $fa-font-path: "@fortawesome/fontawesome-free/webfonts";
+// @import "@fortawesome/fontawesome-free/scss/fontawesome";
+// @import "@fortawesome/fontawesome-free/scss/brands";
+// @import "@fortawesome/fontawesome-free/scss/solid";
+// @import "@fortawesome/fontawesome-free/scss/regular";
+// @import "@fortawesome/fontawesome-free/scss/v4-shims";
 
 
 .layout-menu {

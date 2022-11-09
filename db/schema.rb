@@ -10,16 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_30_155101) do
-
+ActiveRecord::Schema[7.0].define(version: 2022_11_09_140153) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "keywords", force: :cascade do |t|
     t.string "key_string"
     t.bigint "website_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.date "lastSearch"
     t.boolean "isActive", default: true
     t.index ["website_id"], name: "index_keywords_on_website_id"
@@ -30,8 +29,8 @@ ActiveRecord::Schema.define(version: 2022_10_30_155101) do
     t.integer "rank"
     t.string "engine"
     t.bigint "keyword_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["keyword_id"], name: "index_searches_on_keyword_id"
   end
 
@@ -39,8 +38,8 @@ ActiveRecord::Schema.define(version: 2022_10_30_155101) do
     t.bigint "website_id", null: false
     t.bigint "user_id", null: false
     t.string "role"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id", "website_id"], name: "index_shared_websites_on_user_id_and_website_id", unique: true
     t.index ["user_id"], name: "index_shared_websites_on_user_id"
     t.index ["website_id"], name: "index_shared_websites_on_website_id"
@@ -50,10 +49,10 @@ ActiveRecord::Schema.define(version: 2022_10_30_155101) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "reset_password_sent_at", precision: nil
+    t.datetime "remember_created_at", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -62,8 +61,8 @@ ActiveRecord::Schema.define(version: 2022_10_30_155101) do
     t.string "name", null: false
     t.string "url", null: false
     t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_websites_on_user_id"
   end
 

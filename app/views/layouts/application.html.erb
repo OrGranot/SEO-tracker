@@ -10,7 +10,7 @@
   <head>
     <title>SeoTracker</title>
      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/../sneat-1.0.0/assets/img/favicon/favicon.ico" />
 
@@ -49,6 +49,7 @@
     <%= csp_meta_tag %>
 
     <link href="/../fontawesome-free-6.2.0-web/css/all.css" rel="stylesheet">
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 
 
   </head>
