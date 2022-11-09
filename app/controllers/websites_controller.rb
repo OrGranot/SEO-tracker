@@ -60,7 +60,7 @@ class WebsitesController < ApplicationController
   end
 
   def set_keywords
-    @keywords = @website.keywords.joins(:searches).group(:id)
+    @keywords = @website.keywords
   end
 
   private
