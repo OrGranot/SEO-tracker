@@ -28,7 +28,7 @@ gem 'redis', '~> 4.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
-gem 'devise'
+gem 'devise', github: 'heartcombo/devise', branch: 'main'
 gem 'pundit'
 gem 'pry', '~> 0.13.1'
 gem 'simple_form', github: 'heartcombo/simple_form'
