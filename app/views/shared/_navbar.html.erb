@@ -26,7 +26,7 @@
       <div class="nav-item d-flex align-items-center me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to "התנתקות", destroy_user_session_path, data: { "turbo-method": :delete }  ,class: "nav-link" %>
+            <%= button_to "התנתקות", destroy_user_session_path, method: :delete, data: { turbo: false }  ,class: "btn nav-link" %>
           </li>
         <% else %>
           <li class="nav-item">
