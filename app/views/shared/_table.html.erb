@@ -17,7 +17,7 @@
           <%= link_to website_keyword_search_create_path(website,keyword), class: "keyword-option" do %>
             <i class="text-primary fa-solid fa-arrows-rotate"></i>
           <% end %>
-          <%= link_to website_keyword_path(website, keyword), method: :delete, data: { confirm: 'אתה בטוח? כל המידע יאבד' }, class: "text-danger" do %>
+          <%= link_to website_keyword_path(website, keyword), data: {"turbo-method": :delete, turbo_confirm: 'אתה בטוח? כל המידע יאבד' }, class: "text-danger" do %>
             <i class="btn p-0 text-danger">X</i>
           <% end %>
         </div>
