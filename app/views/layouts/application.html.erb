@@ -70,7 +70,9 @@
             <!-- Content -->
             <%= render 'shared/navbar' %>
             <div class="container-xxl flex-grow-1 container-p-y">
-              <%= yield %>
+              <%= turbo_frame_tag("content") do %>
+                <%= yield %>
+              <% end %>
               <!-- / Content -->
               <div class="conteznt-backdrop fade"></div>
             </div>

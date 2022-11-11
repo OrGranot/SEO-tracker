@@ -1,1 +1,3 @@
-<%= render 'shared/table_card', website: @website, role: 'owner' %>
+<%= turbo_frame_tag("website") do %>
+  <%= render 'shared/table_card', website: @website, role: 'owner' %>
+<% end %>

@@ -33,7 +33,7 @@
       <ul class="menu-sub">
         <% @websites.each do |website| %>
           <li class="menu-item <%= current_class?(website_path(website.id)) %> ">
-            <%= link_to website, class: "menu-link" do %>
+            <%= link_to website, class: "menu-link", data: { "turbo-frame": "website"} do %>
               <div data-i18n="Account"><%= website.name %></div>
             <% end %>
           </li>
@@ -49,7 +49,7 @@
       <ul class="menu-sub">
         <% @shared_websites.each do |website| %>
           <li class="menu-item <%= current_class?(shared_website_path(website.id)) %> ">
-            <%= link_to website, class: "menu-link" do %>
+            <%= link_to website, class: "menu-link", data: { "turbo-frame": "content"} do %>
               <div data-i18n="Account"><%= website.website.name %></div>
             <% end %>
           </li>
