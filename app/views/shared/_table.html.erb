@@ -1,10 +1,14 @@
+<%= turbo_frame_tag("keywords") do %>
 <table class="table table-striped" >
   <thead class="bg-white">
     <tr>
-      <th class="bg-white sticky-cell-options" scope="col"></th>
+      <th class="bg-white sticky-cell-options text-center" scope="col">
+          <%= link_to new_website_keyword_path(website), data: { "turbo-frame": "add-keyword" }, class: "" do %>
+            <i class="fa-sharp fa-solid fa-plus"></i>
+          <% end %>
+      </th>
       <th class="sticky-cell" scope="col"><%= sort_link(@q, :key_string, "מילות חיפוש", default_order: :asc) %></th>
       <% @dates.each do |date| %>
-
         <th scope="col" class="date">
           <%= date.strftime('%d/%m/%Y')%>
         </th>
@@ -12,6 +16,13 @@
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td colspan="100%" class="text-end">
+        <%= turbo_frame_tag("add-keyword") do %>
+        <% end %>
+      </td>
+    </tr>
     <%= render 'shared/keywords', website: website %>
   </tbody>
 </table>
+<% end %>

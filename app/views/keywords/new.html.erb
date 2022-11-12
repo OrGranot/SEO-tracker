@@ -1,0 +1,11 @@
+<%= turbo_frame_tag("add-keyword") do %>
+  <%= simple_form_for [ @website, @keyword ], data: {turbo_frame: "content"} do |f| %>
+  <div class="d-flex gap-2 w-50">
+    <%= f.input_field :key_string, :label => false  , placeholder: "הזן מילות חיפוש", class: "form-control", "aria-label": "הזן מילות חיפוש"  %>
+    <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+      הוסף
+    <% end %>
+    <%= link_to "בטל", website_path(@website), class: "btn btn-outline-primary" %>
+  </div>
+  <% end %>
+<% end %>

@@ -7,6 +7,12 @@ class KeywordsController < ApplicationController
 
     # @dates = @keywords.map { |keyword| keyword.searches.map(&:date) }
     # @dates = @dates.flatten.uniq.sort
+    @website = Website.find(params[:website_id])
+  end
+
+  def new
+    @website = Website.find(params[:website_id])
+    @keyword = Keyword.new()
   end
 
   def create
