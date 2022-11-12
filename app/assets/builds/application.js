@@ -5,6 +5,7 @@
   var __getOwnPropNames = Object.getOwnPropertyNames;
   var __getProtoOf = Object.getPrototypeOf;
   var __hasOwnProp = Object.prototype.hasOwnProperty;
+  var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
   var __esm = (fn2, res) => function __init() {
     return fn2 && (res = (0, fn2[__getOwnPropNames(fn2)[0]])(fn2 = 0)), res;
   };
@@ -27,6 +28,10 @@
     isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
     mod
   ));
+  var __publicField = (obj, key, value) => {
+    __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
+    return value;
+  };
 
   // node_modules/@rails/actioncable/src/adapters.js
   var adapters_default;
@@ -13398,9 +13403,37 @@
     }
   };
 
+  // app/javascript/controllers/table_controller.js
+  var table_controller_default = class extends Controller {
+    connect() {
+      this.scollableTarget.scrollLeft -= this.scollableTarget.scrollWidth;
+    }
+  };
+  __publicField(table_controller_default, "targets", ["scollable"]);
+
+  // app/javascript/controllers/search_controller.js
+  var search_controller_default = class extends Controller {
+    connect() {
+      const end2 = this.inputTarget.value.length;
+      this.inputTarget.setSelectionRange(end2, end2);
+      this.inputTarget.focus();
+    }
+    submit() {
+      const submit = setTimeout(() => {
+        this.formTarget.requestSubmit();
+      }, 500);
+      document.addEventListener("keydown", () => {
+        clearTimeout(submit);
+      }, { once: true });
+    }
+  };
+  __publicField(search_controller_default, "targets", ["form", "input"]);
+
   // app/javascript/controllers/index.js
   var application = Application.start();
   application.register("menu", menu_controller_default);
+  application.register("table", table_controller_default);
+  application.register("search", search_controller_default);
 
   // node_modules/chartkick/chart.js/chart.esm.js
   var import_chartkick = __toESM(require_chartkick());

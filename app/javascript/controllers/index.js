@@ -8,6 +8,10 @@ const application = Application.start()
 // const context = require.context("controllers", true, /_controller\.js$/)
 // application.load(definitionsFromContext(context))
 import MenuController from "./menu_controller";
+import TableController from "./table_controller";
+import SearchController from "./search_controller";
 
 
 application.register("menu", MenuController)
+application.register("table", TableController)
+application.register("search", SearchController)

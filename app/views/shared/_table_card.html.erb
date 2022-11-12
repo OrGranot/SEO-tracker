@@ -93,10 +93,10 @@
             </div>
           <% end %>
         </div>
-        <div class=" d-flex mb-2 me-2">
-          <%= search_form_for(@q, url: website_path(@website) , method: :get, data: { turbo_frame: 'content' }) do |f|  %>
+        <div class=" d-flex mb-2 me-2" data-controller="search">
+          <%= search_form_for(@q, url: website_path(@website) , method: :get, data: { turbo_frame: 'content', "search-target": "form" }) do |f|  %>
             <div class="d-flex gap-2 align-items-center">
-              <%= f.search_field :key_string_i_cont_any, placeholder: "חיפוש", class: "form-control" %>
+              <%= f.search_field :key_string_i_cont_any, placeholder: "חיפוש", class: "form-control", data: { action: "keyup->search#submit", "search-target": "input" } %>
               <%= f.submit 'חפש', class: "btn btn-outline-primary" %>
             </div>
           <% end %>
