@@ -1,5 +1,5 @@
 class WebsitesController < ApplicationController
-  before_action :set_website, only: %i[ show edit update destroy]
+  before_action :set_website, only: %i[ show edit update destroy show_by_date]
   before_action :set_websites
 
   # GET /websites or /websites.json
@@ -14,13 +14,17 @@ class WebsitesController < ApplicationController
 
   def show
     # @keywords = @website.keywords
-    @keywords = @website.keywords
+    @q = @website.keywords.ransack(params[:q])
+    @q.sorts = 'created_at desc' if @q.sorts.empty?
+    @keywords = @q.result(distinct: true)
+
     @dates = @keywords.map { |keyword| keyword.searches.map(&:date) }
     @dates = @dates.flatten.uniq.sort
     @shared_website = SharedWebsite.new
     # @website.keywords.joins(:searches).group(:id).last.searches.chart_json
 
   end
+
 
   # POST /websites or /websites.json
   def create

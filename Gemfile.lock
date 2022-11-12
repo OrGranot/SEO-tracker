@@ -1,4 +1,14 @@
 GIT
+  remote: https://github.com/activerecord-hackery/ransack.git
+  revision: c08b4c4d8151aeed131d37baa908380ef4d1d678
+  branch: main
+  specs:
+    ransack (3.2.1)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
+
+GIT
   remote: https://github.com/heartcombo/devise.git
   revision: 6d32d2447cc0f3739d9732246b5a5bde98d9e032
   branch: main
@@ -303,6 +313,7 @@ DEPENDENCIES
   pundit
   rack-mini-profiler (~> 2.0)
   rails (~> 7.0.4)
+  ransack!
   redis (~> 4.0)
   sass-rails (>= 6)
   selenium-webdriver

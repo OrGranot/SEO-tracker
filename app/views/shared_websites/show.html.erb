@@ -1,1 +1,3 @@
-<%= render 'shared/table_card', website: @shared_website.website, role: 'viewer', shared_website: @shared_website %>
+<%= turbo_frame_tag("content") do %>
+  <%= render 'shared/table_card', website: @shared_website.website, role: 'viewer', shared_website: @shared_website %>
+<% end %>

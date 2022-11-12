@@ -12,7 +12,7 @@
   <ul class="menu-inner py-1" data-controller="menu">
     <!-- Dashboard -->
     <li class="menu-item  <%= current_class?(websites_path) %> ">
-      <%= link_to websites_path, class: 'menu-link' do %>
+      <%= link_to websites_path, class: 'menu-link', data: { "turbo-frame": "content"} do %>
           <i class="menu-icon tf-icons bx bx-home-circle"></i>
           <div data-i18n="Analytics">לוח מנהל</div>
       <% end %>
@@ -33,7 +33,7 @@
       <ul class="menu-sub">
         <% @websites.each do |website| %>
           <li class="menu-item <%= current_class?(website_path(website.id)) %> ">
-            <%= link_to website, class: "menu-link", data: { "turbo-frame": "website"} do %>
+            <%= link_to website, class: "menu-link", data: { "turbo-frame": "content"} do %>
               <div data-i18n="Account"><%= website.name %></div>
             <% end %>
           </li>
@@ -87,7 +87,7 @@
         ></button>
       </div>
       <div class="modal-body">
-        <%= render 'form', tag: "צור", new: false %>
+        <%= render 'websites/form', tag: "צור", new: false %>
       </div>
     </div>
   </div>

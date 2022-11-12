@@ -1,4 +1,14 @@
 class KeywordsController < ApplicationController
+  def index
+    # @website = Website.find(params[:website_id])
+    # @q = @website.keywords.ransack(params[:q])
+
+    # @keywords = @q.result(distinct: true)
+
+    # @dates = @keywords.map { |keyword| keyword.searches.map(&:date) }
+    # @dates = @dates.flatten.uniq.sort
+  end
+
   def create
     @keyword = Keyword.new(keyword_params)
     @keyword.key_string.strip!

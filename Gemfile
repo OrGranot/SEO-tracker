@@ -33,6 +33,7 @@ gem 'pundit'
 gem 'pry', '~> 0.13.1'
 gem 'simple_form', github: 'heartcombo/simple_form'
 gem 'jquery-rails'
+gem 'ransack', :github => 'activerecord-hackery/ransack', :branch => 'main'
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
