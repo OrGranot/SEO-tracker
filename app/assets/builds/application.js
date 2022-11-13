@@ -13429,11 +13429,20 @@
   };
   __publicField(search_controller_default, "targets", ["form", "input"]);
 
+  // app/javascript/controllers/keyword_controller.js
+  var keyword_controller_default = class extends Controller {
+    connect() {
+      this.inputTarget.focus();
+    }
+  };
+  __publicField(keyword_controller_default, "targets", ["input"]);
+
   // app/javascript/controllers/index.js
   var application = Application.start();
   application.register("menu", menu_controller_default);
   application.register("table", table_controller_default);
   application.register("search", search_controller_default);
+  application.register("keyword", keyword_controller_default);
 
   // node_modules/chartkick/chart.js/chart.esm.js
   var import_chartkick = __toESM(require_chartkick());

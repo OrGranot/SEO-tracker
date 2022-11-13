@@ -36,4 +36,8 @@ class Website < ApplicationRecord
   def order_by_day(date)
     w.searches.where(date: date).order(rank: :asc).map {|s| s.keyword}
   end
+
+  def by_day(date)
+
+  end
 end

@@ -1,7 +1,7 @@
 <%= turbo_frame_tag("add-keyword") do %>
-  <%= simple_form_for [ @website, @keyword ], data: {turbo_frame: "content"} do |f| %>
+  <%= simple_form_for [ @website, @keyword ], data: {turbo_frame: "content", controller: "keyword"} do |f| %>
   <div class="d-flex gap-2 w-50">
-    <%= f.input_field :key_string, :label => false  , placeholder: "הזן מילות חיפוש", class: "form-control", "aria-label": "הזן מילות חיפוש"  %>
+    <%= f.input_field :key_string, :label => false  , placeholder: "הזן מילות חיפוש", class: "form-control", "aria-label": "הזן מילות חיפוש", data: { "keyword-target": "input" }  %>
     <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
       הוסף
     <% end %>

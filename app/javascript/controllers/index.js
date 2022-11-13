@@ -10,8 +10,10 @@ const application = Application.start()
 import MenuController from "./menu_controller";
 import TableController from "./table_controller";
 import SearchController from "./search_controller";
+import KeywordController from "./keyword_controller";
 
 
 application.register("menu", MenuController)
 application.register("table", TableController)
 application.register("search", SearchController)
+application.register("keyword", KeywordController)
