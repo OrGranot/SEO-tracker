@@ -12,7 +12,7 @@
       )</div>
       <div class="website-links d-flex align-items-center">
         <% if role == 'owner' %>
-          <%= link_to new_website_keyword_path(@website), data: { "turbo-frame": "add-keyword" }, class: "btn" do %>
+          <%= link_to new_website_keyword_path(website), data: { "turbo-frame": "add-keyword" }, class: "btn" do %>
             <i class="fa-sharp fa-solid fa-plus"></i>
           <% end %>
           <button
@@ -59,7 +59,7 @@
                 <div class="modal-header">
                   <div class="d-flex align-items-center gap-3 mt-3">
                     <h5 class="modal-title text-primary" id="backDropModalTitle">שיתוף עם איש קשר</h5>
-                    <span class="text-muted h6 m-0"><%= website.users_as_string %></span>
+                    <span class="text-muted h6 m-0"><%=website.users_as_string %></span>
                   </div>
                   <button
                     type="button"
@@ -88,7 +88,7 @@
         <div class=" d-flex mb-2 me-2">
           <% keyword = Keyword.new %>
             <div class="d-flex" data-controller="search">
-              <%= search_form_for(@q, url: website_path(@website) , method: :get, data: { turbo_frame: 'content', "search-target": "form" }) do |f|  %>
+              <%= search_form_for(@q, url: website_path(website) , method: :get, data: { turbo_frame: 'content', "search-target": "form" }) do |f|  %>
                 <div class="d-flex gap-2 align-items-center">
                   <%= f.search_field :key_string_i_cont_any, placeholder: "חיפוש", class: "form-control", data: { action: "keyup->search#submit", "search-target": "input" } %>
                 </div>
@@ -98,7 +98,7 @@
 
       <% end %>
       <div class="mb-2" style="overflow-x:auto;" data-table-target="scollable">
-        <%= render 'shared/table' %>
+        <%= render 'shared/table'%>
       </div>
       <div class="mt-4">
         <%= line_chart @keywords.map { |keyword|

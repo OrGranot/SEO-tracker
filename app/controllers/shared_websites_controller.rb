@@ -3,7 +3,10 @@ class SharedWebsitesController < ApplicationController
   before_action :set_websites
 
   def show
-    @keywords = @shared_website.website.keywords
+    @q = @website.website.keywords.ransack(params[:q])
+    @q.sorts = 'created_at desc' if @q.sorts.empty?
+    @keywords = @q.result(distinct: true)
+    # @keywords = @shared_website.website.keywords
     @dates = @keywords.map do |keyword|
       keyword.searches.map {|search| search.date }
     end
@@ -56,7 +59,7 @@ class SharedWebsitesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_shared_website
-    @shared_website = SharedWebsite.find_by_id(params[:id])
+    @swebsite = SharedWebsite.find_by_id(params[:id])
     redirect_to websites_path if @shared_website.nil?
   end
 

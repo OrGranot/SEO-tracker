@@ -66,7 +66,7 @@
                 <% @shared_websites.each do |shared_website| %>
                   <tr>
                     <td class="px-3">
-                      <%= link_to shared_website.website.name, shared_website, class: "" %>
+                      <%= link_to shared_website.website.name, website_path(shared_website.website), class: "" %>
                     </td>
                     <td class="px-3"><%= shared_website.website.url %></td>
                     <td class="px-3"><%= shared_website.website.user.email %></td>

@@ -1,5 +1,5 @@
 class WebsitesController < ApplicationController
-  before_action :set_website, only: %i[ show edit update destroy web_by_date]
+  before_action :set_website, only: %i[ show edit update destroy ]
   before_action :set_websites
 
   # GET /websites or /websites.json
@@ -13,6 +13,7 @@ class WebsitesController < ApplicationController
   # GET /websites/1 or /websites/1.json
 
   def show
+
     # @keywords = @website.keywords
     @q = @website.keywords.ransack(params[:q])
     @q.sorts = 'created_at desc' if @q.sorts.empty?
@@ -70,7 +71,7 @@ class WebsitesController < ApplicationController
 
   def set_website
     @website = Website.find_by_id(params[:id])
-    redirect_to websites_path, alert: "Action unauthorized" if @website.nil? || @website.user != current_user
+    redirect_to websites_path, alert: "Action unauthorized" if @website.nil? || (@website.user != current_user && !@website.users.include?(current_user))
   end
 
   def set_websites
