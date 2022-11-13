@@ -5,9 +5,9 @@ class Website < ApplicationRecord
   has_many :users, through: :shared_websites
   has_many :shared_websites, dependent: :destroy
   validates :name, presence: true
-  validates :name, uniqueness: true
+  validates :name, uniqueness: {scope: :user}
   validates :url, presence: true
-  validates :url, uniqueness: true
+  validates :url, uniqueness: {scope: :user}
 
   def group_web_data
     self.keywords.map { |keyword| keyword.searches }.flatten.group_by { |s| s.date }

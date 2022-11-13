@@ -20,7 +20,7 @@
                 <% @websites.each do |website| %>
                   <tr>
                     <td class="website-options">
-                      <%= link_to website, method: :delete, data: { confirm: 'אתה בטוח? כל המידע יאבד' }, class: "text-danger" do %>
+                      <%= link_to website, data: { "turbo-method": :delete, turbo_confirm: 'אתה בטוח? כל המידע יאבד' }, class: "text-danger" do %>
                         <i class="text-danger fa-solid fa-trash"></i>
                       <% end %>
                     </td>
@@ -35,7 +35,7 @@
                 type="button"
                 class="btn btn-primary"
                 data-bs-toggle="modal"
-                data-bs-target="#newWebsite"
+                data-bs-target="#newWebsiteSideBar"
               >
                 הוסף אתר חדש
               </button>

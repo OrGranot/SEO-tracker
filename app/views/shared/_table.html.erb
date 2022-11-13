@@ -3,14 +3,12 @@
     <thead class="bg-white">
       <tr>
         <th class="bg-white sticky-cell-options text-center" scope="col">
-            <%= link_to new_website_keyword_path(@website), data: { "turbo-frame": "add-keyword" }, class: "" do %>
-              <i class="fa-sharp fa-solid fa-plus"></i>
-            <% end %>
+
         </th>
         <th class="sticky-cell" scope="col"><%= sort_link(@q, :created_at, "מילות חיפוש", default_order: :asc) %></th>
         <% @dates.each do |date| %>
           <th scope="col" class="date">
-          <%= link_to website_path(@website), data: { turbo_frame: "" } do %>
+          <%= link_to website_path(@website), data: { "turbo-frame": "keywords" } do %>
             <%= date.strftime('%d/%m/%Y')%>
           <% end %>
           </th>
@@ -21,6 +19,7 @@
       <tr>
         <td colspan="100%" class="text-end">
           <%= turbo_frame_tag("add-keyword") do %>
+
           <% end %>
         </td>
       </tr>
