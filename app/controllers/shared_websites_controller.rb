@@ -3,23 +3,24 @@ class SharedWebsitesController < ApplicationController
   before_action :set_websites
 
   def show
-    @q = @website.website.keywords.ransack(params[:q])
-    @q.sorts = 'created_at desc' if @q.sorts.empty?
-    @keywords = @q.result(distinct: true)
-    # @keywords = @shared_website.website.keywords
-    @dates = @keywords.map do |keyword|
-      keyword.searches.map {|search| search.date }
-    end
-    @dates = @dates.flatten.uniq.sort
-    @arr = []
-    @keywords.each do |keyword|
-      hased_keyword = Hash.new(keyword)
-      @dates.each do |date|
-        hased_keyword[date] = keyword.searches.where(date: date)
+    # @q = @website.website.keywords.ransack(params[:q])
+    # @q.sorts = 'created_at desc' if @q.sorts.empty?
+    # @keywords = @q.result(distinct: true)
+    # # @keywords = @shared_website.website.keywords
+    # @dates = @keywords.map do |keyword|
+    #   keyword.searches.map {|search| search.date }
+    # end
+    # @dates = @dates.flatten.uniq.sort
+    # @arr = []
+    # @keywords.each do |keyword|
+    #   hased_keyword = Hash.new(keyword)
+    #   @dates.each do |date|
+    #     hased_keyword[date] = keyword.searches.where(date: date)
 
-        @arr << hased_keyword
-      end
-    end
+    #     @arr << hased_keyword
+    #   end
+    # end
+    raise
   end
 
   def new
@@ -47,7 +48,8 @@ class SharedWebsitesController < ApplicationController
   end
 
   def destroy
-    @shared_website.destroy
+
+    @shared_website.destroy!
 
     respond_to do |format|
       format.html { redirect_to websites_path, notice: "Shared website was successfully destroyed." }

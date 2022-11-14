@@ -75,7 +75,8 @@
             </div>
           </div>
         <% else %>
-          <%= link_to shared_website, data: { "turbo-method": :delete, turbo_confirm: 'אתה בטוח? השיתוף ימחק' }, class: "btn" do %>
+          <% shared_website = current_user.shared_websites.find_by(website_id: website.id) %>
+          <%= button_to shared_website, method: :delete, data: { "turbo-method": :delete, turbo_confirm: 'אתה בטוח? השיתוף ימחק' }, class: "btn" do %>
             <i class="text-danger fa-solid fa-trash"></i>
           <% end %>
         <% end %>

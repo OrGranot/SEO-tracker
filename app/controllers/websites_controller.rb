@@ -13,7 +13,6 @@ class WebsitesController < ApplicationController
   # GET /websites/1 or /websites/1.json
 
   def show
-
     # @keywords = @website.keywords
     @q = @website.keywords.ransack(params[:q])
     @q.sorts = 'created_at desc' if @q.sorts.empty?

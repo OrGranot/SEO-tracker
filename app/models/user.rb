@@ -9,4 +9,14 @@ class User < ApplicationRecord
   def get_user_name
     self.email.split('@').first
   end
+
+  def role(website_id)
+    if Website.find_by(id: website_id)&.user == self
+      'owner'
+    elsif self.shared_websites.find_by(id: website_id)
+      self.shared_websites.find(website_id).role
+    else
+      nil
+    end
+  end
 end
