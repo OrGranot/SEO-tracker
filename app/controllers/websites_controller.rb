@@ -18,7 +18,8 @@ class WebsitesController < ApplicationController
     @q.sorts = 'created_at desc' if @q.sorts.empty?
     @keywords = @q.result(distinct: true)
     @dates = @keywords.map { |keyword| keyword.searches.map(&:date) }
-    @dates = @dates.flatten.uniq.sort
+    @dates = @dates.flatten.uniq.sort.reverse
+
     @shared_website = SharedWebsite.new
     # @website.keywords.joins(:searches).group(:id).last.searches.chart_json
 
@@ -66,6 +67,9 @@ class WebsitesController < ApplicationController
     end
   end
 
+  def by_day
+    k = w.searches.where(date: date).joins(:keyword).order(rank: :asc).map {|s| s.keyword}
+  end
   private
 
   def set_website

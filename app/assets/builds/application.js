@@ -13403,14 +13403,6 @@
     }
   };
 
-  // app/javascript/controllers/table_controller.js
-  var table_controller_default = class extends Controller {
-    connect() {
-      this.scollableTarget.scrollLeft -= this.scollableTarget.scrollWidth;
-    }
-  };
-  __publicField(table_controller_default, "targets", ["scollable"]);
-
   // app/javascript/controllers/search_controller.js
   var search_controller_default = class extends Controller {
     connect() {
@@ -13440,7 +13432,6 @@
   // app/javascript/controllers/index.js
   var application = Application.start();
   application.register("menu", menu_controller_default);
-  application.register("table", table_controller_default);
   application.register("search", search_controller_default);
   application.register("keyword", keyword_controller_default);
 
