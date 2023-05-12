@@ -74,3 +74,6 @@ gem "chartkick", "~> 4.2"
 
 gem "groupdate", "~> 6.1"
 gem 'turbo-rails'
+gem 'foreman'
+gem 'sidekiq'
+gem 'sinatra', require: false

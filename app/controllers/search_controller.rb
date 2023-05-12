@@ -26,42 +26,55 @@ class SearchController < ApplicationController
       redirect_to @website and return
     end
 
-    rank = find_rank(@keyword)
-    if rank == false
-      flash[:notice] = 'שגיאה בקריאת נתונים'
-      # redirect_to website_path(@website) and return
-    elsif rank.positive?
-      search = Search.new(date: Date.today, rank: rank, engine: 'Google', keyword: @keyword)
-      search.save
-    end
+        SearchRankWorker.perform_async(@keyword.id)
+    # rank = find_rank(@keyword)
+
+
+    # if rank == false
+    #   flash[:notice] = 'שגיאה בקריאת נתונים'
+    #   redirect_to website_path(@website) and return
+    # elsif rank.positive?
+    #   search = Search.new(date: Date.today, rank: rank, engine: 'Google', keyword: @keyword)
+    #   search.save
+    # end
     redirect_to @website
   end
 
+
+
   private
 
-  def find_rank(keyword)
-    results = api_call(keyword)
-    return false if results["request_info"]["success"] == false
+  # def find_rank(keyword)
+  #   domain = (keyword.website.url.downcase).split('.')
+  #   domain.shift
+  #   domain = domain.join('.')
 
-    results["organic_results"].each do |result|
-      return result["position"] if result["domain"] == (keyword.website.url.downcase)
-    end
-    return -1
-  end
+  #   results = api_call(keyword)
+  #   return false if results["request_info"]["success"] == false
 
-  def api_call(query, country = "il")
-    require 'uri'
-    require 'net/http'
-    require 'openssl'
+  #   results["organic_results"].each do |result|
 
-    uri = URI("https://api.valueserp.com/search")
 
-    params = { api_key: ENV.fetch('VALUESERP_API_KEY'), q: query.key_string, gl: country, num: 100 }
-    uri.query = URI.encode_www_form(params)
+  #     return result["position"] if result["domain"].include?(domain)
+  #   end
 
-    res = Net::HTTP.get_response(uri)
-    return JSON.parse(res.read_body)
-  end
+  #   return -1
+  # end
+
+
+  # def api_call(query, country = "il")
+  #   require 'uri'
+  #   require 'net/http'
+  #   require 'openssl'
+
+  #   uri = URI("https://api.valueserp.com/search")
+
+  #   params = { api_key: ENV.fetch('VALUESERP_API_KEY'), q: query.key_string, gl: country, num: 100 }
+  #   uri.query = URI.encode_www_form(params)
+
+  #   res = Net::HTTP.get_response(uri)
+  #   return JSON.parse(res.read_body)
+  # end
 
   def set_website
     @website = Website.find_by_id(params[:website_id])

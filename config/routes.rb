@@ -10,4 +10,11 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'websites#index'
 
+
+  require 'sidekiq/web'
+
+  Rails.application.routes.draw do
+    # ...
+    mount Sidekiq::Web => '/sidekiq'
+  end
 end
